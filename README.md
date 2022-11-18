@@ -6,9 +6,9 @@ Extension package for PsychoPy which adds support for various hardware devices b
 
 Installing this package alongside PsychoPy will enable support for the following devices:
 
-    * Bits# and Bits++ Stimulus Processors
-    * Display++ and Display++ Touch LCD Monitors
-    * ColorCAL Colorimeters
+* Bits# and Bits++ Stimulus Processors
+* Display++ and Display++ Touch LCD Monitors
+* ColorCAL Colorimeters
     
 ## Installing
 
