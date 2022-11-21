@@ -32,5 +32,10 @@ setup(
     classifiers=[
         "License :: OSI Approved :: GPL3",
         'Programming Language :: Python :: 3'],
+    install_requires=[
+        'numpy',
+        'pyserial',
+        'psychopy'
+    ],
     keywords="psychopy hardware photometer display"
 )
