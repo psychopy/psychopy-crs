@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 name = "psychopy-crs"
 version = "0.0.1"
@@ -22,9 +22,9 @@ description = (
 setup(
     name=name,
     version=version,
-    packages=packages,
-    package_dir=package_dir,
-    package_data=package_data,
+    packages=find_packages('.'),
+    # package_dir=package_dir,
+    # package_data=package_data,
     author="Matthew D. Cutone",
     author_email="mcutone@opensciencetools.org",
     description=description,
