@@ -1,6 +1,7 @@
 # psychopy-crs
 
-Extension package for PsychoPy which adds support for various hardware devices by Cambridge Research Systems. 
+Extension package for PsychoPy which adds support for various hardware devices by 
+[Cambridge Research Systems Ltd.](https://www.crsltd.com/). 
 
 ## Supported Devices
 
