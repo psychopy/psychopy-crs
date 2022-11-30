@@ -8,7 +8,7 @@ version = "0.0.1"
 description = "Extension package for PsychoPy which adds support for various hardware devices by Cambridge Research Systems."
 readme = "README.md"
 requires-python = ">= 3.7"
-license.file = "LICENSE"
+license = {text = "GNU General Public License v3 (GPLv3)"}
 authors = [
   { name = "Jon Peirce", email = "jon@opensceincetools.org" },
   { name = "Matthew Cutone", email = "mcutone@opensceincetools.org" },
@@ -26,9 +26,7 @@ classifiers = [
 ]
 urls.homepage = "https://github.com/mdcutone/psychopy-crs"
 urls.changelog = "https://github.com/mdcutone/psychopy-crs/blob/main/CHANGELOG.txt"
-
 dependencies = [
   "pyserial",
-  "numpy"
+  "numpy",
 ]
-
