@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "psychopy-crs"
-version = "0.0.1"
+version = "0.0.2"
 description = "Extension package for PsychoPy which adds support for various hardware devices by Cambridge Research Systems."
 readme = "README.md"
 requires-python = ">= 3.7"
@@ -24,8 +24,10 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: Implementation :: CPython",
 ]
-urls.homepage = "https://github.com/mdcutone/psychopy-crs"
-urls.changelog = "https://github.com/mdcutone/psychopy-crs/blob/main/CHANGELOG.txt"
+urls.homepage = "https://github.com/psychopy/psychopy-crs"
+urls.changelog = "https://github.com/psychopy/psychopy-crs/blob/main/CHANGELOG.txt"
+urls.documentation = "https://pages.github.com/psychopy/psychopy-crs"
+urls.repository = "https://github.com/psychopy/psychopy-crs"
 dependencies = [
   "pyserial",
   "numpy",
