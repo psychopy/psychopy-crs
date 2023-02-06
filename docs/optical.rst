@@ -1,6 +1,6 @@
 .. _template_module:
 
-Template Module (API)
+Opti CAL
 -------------------------------
 
 .. automodule:: psychopy_crs.optical

@@ -1,6 +1,6 @@
 .. _template_module:
 
-Template Module (API)
+Color CAL
 -------------------------------
 
 .. automodule:: psychopy_crs.colorcal
