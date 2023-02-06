@@ -1,6 +1,6 @@
 .. _template_module:
 
-Template Module (API)
+Bits
 -------------------------------
 
 .. automodule:: psychopy_crs.bits

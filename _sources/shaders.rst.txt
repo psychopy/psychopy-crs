@@ -1,6 +1,6 @@
 .. _template_module:
 
-Template Module (API)
+Shaders
 -------------------------------
 
 .. automodule:: psychopy_crs.shaders
