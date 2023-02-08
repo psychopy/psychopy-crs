@@ -10,17 +10,19 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-print(f"Building from configuration in: {__file__}")
-import os
-import sys
-_modulePath = os.path.abspath("../psychopy_crs")
-print("Contents of module path:")
-import glob
-for file in glob.glob(_modulePath + "/**", recursive=True):
-    print("    ", file)
 
+from pathlib import Path
+import sys
+_modulePath = Path("./psychopy_crs").resolve()
 sys.path.insert(0, _modulePath)
-print(f"Added module path: {_modulePath}")
+# Print some info so we can see any problems in the build logs
+print(
+    f"Added module path {_modulePath}\n"
+    f"Contents are:"
+    )
+for _subFile in _modulePath.glob("*"):
+    print(f"    {_subFile}")
+
 
 # -- Project information -----------------------------------------------------
 
