@@ -13,7 +13,7 @@
 
 from pathlib import Path
 import sys
-_modulePath = Path("./psychopy_crs").resolve()
+_modulePath = Path("../psychopy_crs").resolve()
 sys.path.insert(0, _modulePath)
 # Print some info so we can see any problems in the build logs
 print(
@@ -29,7 +29,7 @@ for _subFile in _modulePath.glob("*"):
 project = 'psychopy-crs'
 copyright = '2022, Open Science Tools'
 author = 'Open Science Tools'
-repo = 'https://github.com/TEParsons/psychopy-crs'
+repo = 'https://github.com/psychopy/psychopy-crs'
 
 
 # -- General configuration ---------------------------------------------------
