@@ -10,10 +10,9 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-from pathlib import Path
+import os
 import sys
-__rootfolder__ = Path(__file__).parent.parent
-sys.path.insert(0, str(__rootfolder__ / "psychopy_crs"))
+sys.path.insert(0, os.path.abspath("./psychopy_crs"))
 
 
 # -- Project information -----------------------------------------------------
