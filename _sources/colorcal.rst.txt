@@ -1,5 +1,3 @@
-.. _template_module:
-
 Color CAL
 -------------------------------
 
