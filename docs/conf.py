@@ -13,7 +13,7 @@
 print(f"Building from configuration in: {__file__}")
 import os
 import sys
-_modulePath = os.path.abspath("../..")
+_modulePath = os.path.abspath("../psychopy_crs")
 print("Contents of module path:")
 import glob
 for file in glob.glob(_modulePath + "/**", recursive=True):
