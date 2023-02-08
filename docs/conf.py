@@ -13,7 +13,7 @@
 print(f"Building from configuration in: {__file__}")
 import os
 import sys
-_modulePath = os.path.abspath("../..")
+_modulePath = os.path.abspath("../../psychopy_crs")
 sys.path.insert(0, _modulePath)
 print(f"Added module path: {_modulePath}")
 
