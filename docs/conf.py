@@ -11,18 +11,6 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 
-from pathlib import Path
-import sys
-_modulePath = Path("..").resolve()
-sys.path.insert(0, _modulePath)
-# Print some info so we can see any problems in the build logs
-print(
-    f"Added module path {_modulePath}\n"
-    f"Contents are:"
-    )
-for _subFile in _modulePath.glob("*"):
-    print(f"    {_subFile}")
-
 
 # -- Project information -----------------------------------------------------
 
