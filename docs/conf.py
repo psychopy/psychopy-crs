@@ -13,7 +13,7 @@
 
 from pathlib import Path
 import sys
-_modulePath = Path("../psychopy_crs").resolve()
+_modulePath = Path("..").resolve()
 sys.path.insert(0, _modulePath)
 # Print some info so we can see any problems in the build logs
 print(
