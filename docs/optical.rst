@@ -2,8 +2,7 @@ Opti CAL
 -------------------------------
 
 .. automodule:: psychopy_crs.optical
-
-.. _templateModule:
+    :members:
 
 .. autoclass:: psychopy_crs.optical.OptiCAL
     :members:
