@@ -10,14 +10,15 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+from pathlib import Path
+import sys
+__rootfolder__ = Path(__file__).parent.parent
+sys.path.insert(0, str(__rootfolder__ / "psychopy_crs"))
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'psychopy-template'
+project = 'psychopy-crs'
 copyright = '2022, Open Science Tools'
 author = 'Open Science Tools'
 repo = 'https://github.com/TEParsons/psychopy-template'
