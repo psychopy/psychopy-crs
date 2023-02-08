@@ -266,13 +266,43 @@ interface no longer supports the ‘voltage’ mode, and the device will
 be put into ‘current’ mode at startup.</p>
 </section>
 </section>
-<span class="target" id="templatemodule"></span><dl class="py class">
+<dl class="py exception">
+<dt class="sig sig-object py" id="psychopy_crs.optical.NACKException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.optical.</span></span><span class="sig-name descname"><span class="pre">NACKException</span></span><a class="headerlink" href="#psychopy_crs.optical.NACKException" title="Permalink to this definition">¶</a></dt>
+<dd><p>raised when the OptiCAL sends a NACK byte to signify an error</p>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="psychopy_crs.optical.OptiCAL">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.optical.</span></span><span class="sig-name descname"><span class="pre">OptiCAL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">com_port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psychopy_crs.optical.OptiCAL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Object to access the OptiCAL</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="psychopy_crs.optical.OptiCAL.read_luminance">
 <span class="sig-name descname"><span class="pre">read_luminance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psychopy_crs.optical.OptiCAL.read_luminance" title="Permalink to this definition">¶</a></dt>
+<dd><p>the luminance in cd/m**2</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="psychopy_crs.optical.OptiCALException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.optical.</span></span><span class="sig-name descname"><span class="pre">OptiCALException</span></span><a class="headerlink" href="#psychopy_crs.optical.OptiCALException" title="Permalink to this definition">¶</a></dt>
+<dd><p>base exception for all OptiCAL exceptions</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="psychopy_crs.optical.TimeoutException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.optical.</span></span><span class="sig-name descname"><span class="pre">TimeoutException</span></span><a class="headerlink" href="#psychopy_crs.optical.TimeoutException" title="Permalink to this definition">¶</a></dt>
+<dd><p>raised when the OptiCAL does not respond within the timeout limit</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="id0">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.optical.</span></span><span class="sig-name descname"><span class="pre">OptiCAL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">com_port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object to access the OptiCAL</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">read_luminance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Permalink to this definition">¶</a></dt>
 <dd><p>the luminance in cd/m**2</p>
 </dd></dl>
 
