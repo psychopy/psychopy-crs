@@ -10,11 +10,11 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
+print(f"Building from configuration in: {__file__}")
 import os
 import sys
 _modulePath = os.path.abspath("../psychopy_crs")
 sys.path.insert(0, _modulePath)
-print(f"Building from configuration in: {__file__}")
 print(f"Added module path: {_modulePath}")
 
 # -- Project information -----------------------------------------------------
@@ -22,7 +22,7 @@ print(f"Added module path: {_modulePath}")
 project = 'psychopy-crs'
 copyright = '2022, Open Science Tools'
 author = 'Open Science Tools'
-repo = 'https://github.com/TEParsons/psychopy-template'
+repo = 'https://github.com/TEParsons/psychopy-crs'
 
 
 # -- General configuration ---------------------------------------------------
