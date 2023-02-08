@@ -12,8 +12,9 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath("./psychopy_crs"))
-
+_modulePath = os.path.abspath("./psychopy_crs")
+sys.path.insert(0, _modulePath)
+print(f"Added module path: {_modulePath}")
 
 # -- Project information -----------------------------------------------------
 
