@@ -133,9 +133,152 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <section id="opti-cal">
-<h1>Opti CAL<a class="headerlink" href="#opti-cal" title="Permalink to this heading">¶</a></h1>
-<span class="target" id="templatemodule"></span></section>
+  <section id="module-psychopy_crs.optical">
+<span id="opti-cal"></span><h1>Opti CAL<a class="headerlink" href="#module-psychopy_crs.optical" title="Permalink to this heading">¶</a></h1>
+<p>Python interface to the CRS ‘OptiCAL’ photometer.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>The ‘OptiCAL’ is a photometer that is produced by Cambridge Research
+Systems (CRS). This device is a standard tool for gamma-calibration of
+display devices in vision research. This package provides a free-software
+replacement for the Windows-software distributed by the manufacturer that
+allows querying an OptiCAL via a serial connection. <cite>pyoptical</cite> can be used
+as a library in third-party applications or as a standalone command line
+tool.</p>
+<p>This module provides the <cite>OptiCAL</cite> class and some supporting code. The
+command line wrapper for this module can be found in the ‘pyoptical’
+script.</p>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h3>
+<dl>
+<dt>Command line:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pyoptical</span> <span class="pre">--number=15</span> <span class="pre">--interval=750</span> <span class="pre">/dev/ttyUSB0</span></code></p>
+<p>Make 15 measurements with an interval of 750 ms between them.</p>
+<dl class="simple">
+<dt>usage:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pyoptical</span> <span class="pre">[-i</span> <span class="pre">interval]</span> <span class="pre">[-n</span> <span class="pre">number</span> <span class="pre">]</span> <span class="pre">[-r]</span> <span class="pre">com-port</span></code></p>
+</dd>
+</dl>
+<p>For more information try, <code class="docutils literal notranslate"><span class="pre">pyoptical</span> <span class="pre">--help</span></code>. For more information
+about the <code class="docutils literal notranslate"><span class="pre">com-port</span></code> argument see: <a class="reference internal" href="#notes-about-the-com-port">Notes about the com-port</a>.</p>
+</dd>
+<dt>Library:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyoptical</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">op</span> <span class="o">=</span> <span class="n">pyoptical</span><span class="o">.</span><span class="n">OptiCAL</span><span class="p">(</span><span class="s1">&#39;dev/dev/ttyUSB0&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">op</span><span class="o">.</span><span class="n">read_luminance</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">except</span> <span class="n">pyoptical</span><span class="o">.</span><span class="n">NACKException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="notes-about-the-com-port">
+<h3>Notes about the com-port<a class="headerlink" href="#notes-about-the-com-port" title="Permalink to this heading">¶</a></h3>
+<p>The com_port argument for the constructor may vary depending on both
+your operating system and how you connect to the OptiCAL. This code
+was developed using a usb-to-serial adapter that contains a PL2303
+chipset manufactured by Prolific:
+<a class="reference external" href="http://www.prolific.com.tw/eng/Products.asp?ID=59">http://www.prolific.com.tw/eng/Products.asp?ID=59</a>. The following
+sections outline how to access the OptiCAL using pyoptical and a
+usb-to-serial adapter containing the prolific chipset. We have not
+tried this code using a raw serial port, but would be very
+interested to hear from you if you do.</p>
+<dl>
+<dt>Linux (Ubuntu Hardy / Debian Lenny):</dt><dd><p>Support for the PL2303 chipset is compiled into the kernel, and
+the device is automatically recognised. You could check ‘dmesg’
+for the following output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usb</span> <span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="n">new</span> <span class="n">full</span> <span class="n">speed</span> <span class="n">USB</span> <span class="n">device</span> <span class="n">using</span> <span class="n">uhci_hcd</span> <span class="ow">and</span> <span class="n">address</span> <span class="mi">4</span>
+<span class="n">usb</span> <span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="n">configuration</span> <span class="c1">#1 chosen from 1 choice</span>
+<span class="n">pl2303</span> <span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mf">1.0</span><span class="p">:</span> <span class="n">pl2303</span> <span class="n">converter</span> <span class="n">detected</span>
+<span class="n">usb</span> <span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="n">pl2303</span> <span class="n">converter</span> <span class="n">now</span> <span class="n">attached</span> <span class="n">to</span> <span class="n">ttyUSB0</span>
+</pre></div>
+</div>
+<p>In this case the com_port string is simply <code class="docutils literal notranslate"><span class="pre">/dev/ttyUSB0</span></code></p>
+</dd>
+<dt>Mac OSX (10.5.8 Leopard)</dt><dd><p>Support for the PL2303 chipset is provided by the following
+open source driver: <a class="reference external" href="http://osx-pl2303.sourceforge.net/">http://osx-pl2303.sourceforge.net/</a></p>
+<p>In this case the com-port string would be something along the
+lines of <code class="docutils literal notranslate"><span class="pre">/dev/tty.PL2303-xxx</span></code>, for example:
+<code class="docutils literal notranslate"><span class="pre">/dev/tty.PL2303-000031FD</span></code></p>
+</dd>
+<dt>Windows (XP)</dt><dd><p>The manufacturer of your usb-to-serial adapter should provide
+you with drivers.</p>
+<p>In this case the com-port string would be something like:
+<code class="docutils literal notranslate"><span class="pre">COM2</span></code>, check the device manager for the number of the COM port.</p>
+</dd>
+<dt>Other Operating Systems and Adapters:</dt><dd><p>This code has two limitations, most importantly pyserial must
+support your platform. Secondly, if you wish to use a
+usb-to-serial adapter a driver for your target operating system
+must be available from the manufacturer or possibly a third
+party (for example and open source driver).</p>
+</dd>
+</dl>
+</section>
+<section id="notes-about-possible-exceptions">
+<h3>Notes about possible exceptions<a class="headerlink" href="#notes-about-possible-exceptions" title="Permalink to this heading">¶</a></h3>
+<p>There are three types of exceptions that can happen:</p>
+<ul class="simple">
+<li><p><cite>OptiCALException</cite></p></li>
+<li><p><cite>NACKException</cite></p></li>
+<li><p><cite>TimeoutException</cite></p></li>
+</ul>
+<p>The <cite>OptiCALException</cite> is the base class for all exceptions in this
+module, and it is used as a general purpose exception to signify
+errors on the part of the programmer, do not quietly except these.</p>
+<p>The <cite>NACKException</cite> is raised when the OptiCAL responds with a <code class="docutils literal notranslate"><span class="pre">NACK</span></code>
+byte. It does this either if the command was not understood or if
+the command failed. If this happens during initialization, you may
+have to re-initialise the device. If this happens during readout it
+should be safe to try again instead of terminating the program.</p>
+<p>The <cite>TimeoutException</cite> is raised when no answer is received within the
+default timeout length. This might be caused by a number of issues,
+but essentially means that somehow the communication with the
+OptiCAL might be interrupted, for example because it is no longer
+connected to the computer.</p>
+</section>
+<section id="implementation-details">
+<h3>Implementation details<a class="headerlink" href="#implementation-details" title="Permalink to this heading">¶</a></h3>
+<p>The interface is implemented according to the protocol specification in the
+OptiCAL-User-Guide Version 4, 1995 including the following amendments:</p>
+<ol class="arabic simple">
+<li><p>To read out the ADC value, an ‘L’ must be sent instead of an ‘R’</p></li>
+<li><p>The equations to convert from ADC to meaningful units had changed. See
+the source code of <code class="docutils literal notranslate"><span class="pre">read_luminance()</span></code> for details.</p></li>
+</ol>
+<p>The full errata is available from the CSR website:</p>
+<p><a class="reference external" href="http://support.crsltd.com/FileManagement/Download/9f5f62bcb3e64eb8934fe72afb937cb6">http://support.crsltd.com/FileManagement/Download/9f5f62bcb3e64eb8934fe72afb937cb6</a></p>
+<p>The corrected versions of the conversion formulas can also be found
+in the OptiCAL.py python interface available from the CRS website,
+written by Walter F. Bischof in 2007. However note that this code may
+contain a bug, see
+<a class="reference external" href="http://groups.google.com/group/psychopy-users/msg/9cb35590daf3a29b">http://groups.google.com/group/psychopy-users/msg/9cb35590daf3a29b</a>
+for detail.</p>
+<p>The constructor will first perform the initial calibration of the
+device as required by the protocol specification. Next it will read
+out all parameters from the eeprom and store them as private
+variables. And lastly it will put the device into the default mode.</p>
+<p>The initial version of the OptiCAL hardware supported two readout
+modes ‘current’ and ‘voltage’. The device could be used to read
+luminance when in ‘current’ mode and ‘voltage’ when in voltage mode.
+Over the years there have been two revisions of the OptiCAL
+hardware, both no longer supported usage as a voltmeter, and thus
+the ‘voltage’ mode has become redundant. Since version 0.2 this
+interface no longer supports the ‘voltage’ mode, and the device will
+be put into ‘current’ mode at startup.</p>
+</section>
+</section>
+<span class="target" id="templatemodule"></span><dl class="py class">
+<dt class="sig sig-object py" id="psychopy_crs.optical.OptiCAL">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.optical.</span></span><span class="sig-name descname"><span class="pre">OptiCAL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">com_port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psychopy_crs.optical.OptiCAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object to access the OptiCAL</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.optical.OptiCAL.read_luminance">
+<span class="sig-name descname"><span class="pre">read_luminance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psychopy_crs.optical.OptiCAL.read_luminance" title="Permalink to this definition">¶</a></dt>
+<dd><p>the luminance in cd/m**2</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 
 
       <br/><a href="#" class="pull-right">Back to top</a>
