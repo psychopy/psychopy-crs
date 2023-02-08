@@ -237,6 +237,108 @@ timeout for a response.</p>
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="id0">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.colorcal.</span></span><span class="sig-name descname"><span class="pre">ColorCAL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxAttempts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class to handle the CRS Ltd ColorCAL device</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">calibrateZero</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a calibration to zero light.</p>
+<p>For early versions of the ColorCAL this had to be called after
+connecting to the device. For later versions the dark calibration
+was performed at the factory and stored in non-volatile memory.</p>
+<p>You can check if you need to run a calibration with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ColorCAL</span><span class="o">.</span><span class="n">getNeedsCalibrateZero</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">getCalibMatrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the calibration matrix from the device, needed for transforming
+measurements into real-world values.</p>
+<p>This is normally retrieved during __init__ and stored as
+<cite>ColorCal.calibMatrix</cite> so most users don’t need to call this function.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">getInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries the device for information</p>
+<dl class="simple">
+<dt>usage::</dt><dd><dl class="simple">
+<dt>(ok, serialNumber,</dt><dd><p>firmwareVersion, firmwareBuild) = colorCal.getInfo()</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><cite>ok</cite> will be True/False
+Other values will be a string or None.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">getLum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Conducts a measurement and returns the measured luminance</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The luminance is always also stored as .lastLum</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">getNeedsCalibrateZero</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether the device needs a dark calibration</p>
+<p>In initial versions of CRS ColorCAL mkII the device stored
+its zero calibration in volatile memory and needed to be
+calibrated in darkness each time you connected it to the USB</p>
+<p>This function will check whether your device requires that (based
+on firmware build number and whether you’ve already done it
+since python connected to the device).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True or False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">measure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id6" title="Permalink to this definition">¶</a></dt>
+<dd><p>Conduct a measurement and return the X,Y,Z values</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ok</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">colorCal</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Where:</dt><dd><p>ok is True/False
+X, Y, Z are the CIE coordinates (Y is luminance in cd/m**2)</p>
+</dd>
+</dl>
+<p>Following a call to measure, the values ColorCAL.lastLum will also be
+populated with, for compatibility with other devices used by PsychoPy
+(notably the PR650/PR655)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">readline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'\n\r'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id7" title="Permalink to this definition">¶</a></dt>
+<dd><p>This should be used in place of the standard serial.Serial.readline()
+because that doesn’t allow us to set the eol character</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">sendMessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id8" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a command to the photometer and wait an allotted
+timeout for a response.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
