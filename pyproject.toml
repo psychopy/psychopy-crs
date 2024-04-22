@@ -32,3 +32,22 @@ dependencies = [
   "pyserial",
   "numpy",
 ]
+
+[project.optional-dependencies]
+# dependencies for building the docs
+docs = [
+  "psychopy",
+  "sphinx",
+  "furo",
+]
+# dependencies for running the test suite
+tests = [
+  "psychopy @ git+https://github.com/psychopy/psychopy@release",
+  "pytest",
+]
+
+[project.entry-points."psychopy.hardware.crs"]
+bits = "psychopy_crs.bits"
+colorcal = "psychopy_crs.colorcal"
+optical = "psychopy_crs.optical"
+shaders = "psychopy_crs.shaders"
