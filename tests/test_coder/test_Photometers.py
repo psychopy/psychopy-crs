@@ -1,4 +1,4 @@
-from psychopy import hardware
+from psychopy import hardware, plugins
 from psychopy_crs.colorcal import ColorCAL
 from psychopy_crs.optical import OptiCAL
 
