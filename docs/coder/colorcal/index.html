@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Color CAL &#8212; PsychoPy Example Plugin 0.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=536c50fe" />
+    <link rel="stylesheet" type="text/css" href="../../_static/psychopy.css?v=b9f4e6dd" />
+    <script src="../../_static/documentation_options.js?v=d20be8f5"></script>
+    <script src="../../_static/doctools.js?v=b682be12"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../../_static/js/jquery-fix.js"></script>
+    <script src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Opti CAL" href="../optical/" />
+    <link rel="prev" title="Bits" href="../bits/" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-4089651-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-4089651-2');
+    </script>
+
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+      _paq.push(["setCookieDomain", "*.psychopy.org"]);
+      _paq.push(["setDomains", ["*.psychopy.org","*.discourse.psychopy.org"]]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//analytics.opensciencetools.org/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '3']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//analytics.opensciencetools.org/matomo.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+    <!-- End Matomo Code -->
+
+
+  </head><body>
+
+<!-- The social media icon bar -->
+<div class="social-bar">
+  <a href="" class="github">
+    <i class="fab fa-github"></i></a>
+</div>
+
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand small-logo" href="../../">
+          <img src="../../_static/Psychopy Plugin Header Small.png" alt="PsychoPy Logo">
+        </a>
+        <a class="navbar-brand large-logo" href="../../">
+          <img src="../../_static/Psychopy Plugin Header Large.png" alt="PsychoPy Logo">
+        </a>
+        <!-- <span class="navbar-text navbar-version pull-right"><b></b></span> -->
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse w-100 pull-right">
+          <ul class="nav navbar-nav ml-auto">
+            <li><a href="../../">Home</a></li>
+            <li><a href="../../download/">Install</a></li>
+            
+            <li><a href="https://plugins.psychopy.org/directory.html" class="return-btn">plugins.psychopy.org</a></li>
+            
+              <!-- <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../">Documentation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption" role="heading"><span class="caption-text">Added content for Coder</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../bits/">Bits</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Color CAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optical/">Opti CAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shaders/">Shaders</a></li>
+</ul>
+</ul>
+</li> -->
+              
+            
+            <!--  -->
+            
+            
+          </ul>
+
+            <!-- 
+              
+<form class="navbar-form navbar-right" action="../../search/" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+             -->
+
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 content">
+      
+  <section id="module-psychopy_crs.colorcal">
+<span id="color-cal"></span><h1>Color CAL<a class="headerlink" href="#module-psychopy_crs.colorcal" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="psychopy_crs.colorcal.ColorCAL">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.colorcal.</span></span><span class="sig-name descname"><span class="pre">ColorCAL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxAttempts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/colorcal/#ColorCAL"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.colorcal.ColorCAL" title="Link to this definition">¶</a></dt>
+<dd><p>A class to handle the CRS Ltd ColorCAL device</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.colorcal.ColorCAL.calibrateZero">
+<span class="sig-name descname"><span class="pre">calibrateZero</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/colorcal/#ColorCAL.calibrateZero"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.colorcal.ColorCAL.calibrateZero" title="Link to this definition">¶</a></dt>
+<dd><p>Perform a calibration to zero light.</p>
+<p>For early versions of the ColorCAL this had to be called after
+connecting to the device. For later versions the dark calibration
+was performed at the factory and stored in non-volatile memory.</p>
+<p>You can check if you need to run a calibration with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ColorCAL</span><span class="o">.</span><span class="n">getNeedsCalibrateZero</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.colorcal.ColorCAL.getCalibMatrix">
+<span class="sig-name descname"><span class="pre">getCalibMatrix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/colorcal/#ColorCAL.getCalibMatrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.colorcal.ColorCAL.getCalibMatrix" title="Link to this definition">¶</a></dt>
+<dd><p>Get the calibration matrix from the device, needed for transforming
+measurements into real-world values.</p>
+<p>This is normally retrieved during __init__ and stored as
+<cite>ColorCal.calibMatrix</cite> so most users don’t need to call this function.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.colorcal.ColorCAL.getInfo">
+<span class="sig-name descname"><span class="pre">getInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/colorcal/#ColorCAL.getInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.colorcal.ColorCAL.getInfo" title="Link to this definition">¶</a></dt>
+<dd><p>Queries the device for information</p>
+<dl class="simple">
+<dt>usage::</dt><dd><dl class="simple">
+<dt>(ok, serialNumber,</dt><dd><p>firmwareVersion, firmwareBuild) = colorCal.getInfo()</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><cite>ok</cite> will be True/False
+Other values will be a string or None.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.colorcal.ColorCAL.getLum">
+<span class="sig-name descname"><span class="pre">getLum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/colorcal/#ColorCAL.getLum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.colorcal.ColorCAL.getLum" title="Link to this definition">¶</a></dt>
+<dd><p>Conducts a measurement and returns the measured luminance</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The luminance is always also stored as .lastLum</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.colorcal.ColorCAL.getNeedsCalibrateZero">
+<span class="sig-name descname"><span class="pre">getNeedsCalibrateZero</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/colorcal/#ColorCAL.getNeedsCalibrateZero"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.colorcal.ColorCAL.getNeedsCalibrateZero" title="Link to this definition">¶</a></dt>
+<dd><p>Check whether the device needs a dark calibration</p>
+<p>In initial versions of CRS ColorCAL mkII the device stored
+its zero calibration in volatile memory and needed to be
+calibrated in darkness each time you connected it to the USB</p>
+<p>This function will check whether your device requires that (based
+on firmware build number and whether you’ve already done it
+since python connected to the device).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True or False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.colorcal.ColorCAL.measure">
+<span class="sig-name descname"><span class="pre">measure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/colorcal/#ColorCAL.measure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.colorcal.ColorCAL.measure" title="Link to this definition">¶</a></dt>
+<dd><p>Conduct a measurement and return the X,Y,Z values</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ok</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">colorCal</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Where:</dt><dd><p>ok is True/False
+X, Y, Z are the CIE coordinates (Y is luminance in cd/m**2)</p>
+</dd>
+</dl>
+<p>Following a call to measure, the values ColorCAL.lastLum will also be
+populated with, for compatibility with other devices used by PsychoPy
+(notably the PR650/PR655)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.colorcal.ColorCAL.readline">
+<span class="sig-name descname"><span class="pre">readline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'\n\r'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/colorcal/#ColorCAL.readline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.colorcal.ColorCAL.readline" title="Link to this definition">¶</a></dt>
+<dd><p>This should be used in place of the standard serial.Serial.readline()
+because that doesn’t allow us to set the eol character</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.colorcal.ColorCAL.sendMessage">
+<span class="sig-name descname"><span class="pre">sendMessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/colorcal/#ColorCAL.sendMessage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.colorcal.ColorCAL.sendMessage" title="Link to this definition">¶</a></dt>
+<dd><p>Send a command to the photometer and wait an allotted
+timeout for a response.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+      <br/><a href="#" class="pull-right">Back to top</a>
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <span class="pull-right">
+      
+        
+<div id="sourcelink">
+  <a href="https://github.com/psychopy/psychopy/blob/master/docs/source/coder/colorcal.rst"
+     rel="nofollow">Source</a>
+</div>
+      <br/>
+
+          &copy; 2002-2018 <a href="https://www.peirce.org.uk/">Jonathan Peirce</a><br/>
+          &copy; 2019 <a href="https://opensciencetools.org/">Open Science Tools Ltd.</a><br/><br/>
+        PsychoPy<sup>®</sup> and Pavlovia<sup>®</sup> are registered trademarks of Open Science Tools Ltd.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.3.7.<br/><br/>
+    </span>
+
+    <a href="http://www.nottingham.ac.uk/"><img src="../../_static/Nottingham Supported.png", alt="Uni of Nottingham" width=250></a>
+  </div>
+
+</footer>
+  </body>
+</html>

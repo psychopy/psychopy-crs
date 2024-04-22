@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>psychopy_crs.optical &#8212; PsychoPy Example Plugin 0.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=536c50fe" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/psychopy.css?v=b9f4e6dd" />
+    <script src="../../../_static/documentation_options.js?v=d20be8f5"></script>
+    <script src="../../../_static/doctools.js?v=b682be12"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/js/jquery-fix.js"></script>
+    <script src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-4089651-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-4089651-2');
+    </script>
+
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+      _paq.push(["setCookieDomain", "*.psychopy.org"]);
+      _paq.push(["setDomains", ["*.psychopy.org","*.discourse.psychopy.org"]]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//analytics.opensciencetools.org/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '3']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//analytics.opensciencetools.org/matomo.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+    <!-- End Matomo Code -->
+
+
+  </head><body>
+
+<!-- The social media icon bar -->
+<div class="social-bar">
+  <a href="" class="github">
+    <i class="fab fa-github"></i></a>
+</div>
+
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand small-logo" href="../../../">
+          <img src="../../../_static/Psychopy Plugin Header Small.png" alt="PsychoPy Logo">
+        </a>
+        <a class="navbar-brand large-logo" href="../../../">
+          <img src="../../../_static/Psychopy Plugin Header Large.png" alt="PsychoPy Logo">
+        </a>
+        <!-- <span class="navbar-text navbar-version pull-right"><b></b></span> -->
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse w-100 pull-right">
+          <ul class="nav navbar-nav ml-auto">
+            <li><a href="../../../">Home</a></li>
+            <li><a href="../../../download/">Install</a></li>
+            
+            <li><a href="https://plugins.psychopy.org/directory.html" class="return-btn">plugins.psychopy.org</a></li>
+            
+              <!-- <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../">Documentation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption" role="heading"><span class="caption-text">Added content for Coder</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../coder/bits/">Bits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coder/colorcal/">Color CAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coder/optical/">Opti CAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coder/shaders/">Shaders</a></li>
+</ul>
+</ul>
+</li> -->
+              
+            
+            <!--  -->
+            
+            
+          </ul>
+
+            <!-- 
+              
+<form class="navbar-form navbar-right" action="../../../search/" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+             -->
+
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 content">
+      
+  <h1>Source code for psychopy_crs.optical</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1"># Copyright (c) 2009-2012 Valentin Haenel &lt;valentin.haenel@gmx.de&gt;</span>
+<span class="c1">#</span>
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="c1"># of this software and associated documentation files (the &quot;Software&quot;), to deal</span>
+<span class="c1"># in the Software without restriction, including without limitation the rights</span>
+<span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
+<span class="c1"># furnished to do so, subject to the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1"># The above copyright notice and this permission notice shall be included in</span>
+<span class="c1"># all copies or substantial portions of the Software.</span>
+<span class="c1">#</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</span>
+<span class="c1"># THE SOFTWARE.</span>
+
+<span class="sd">&quot;&quot;&quot; Python interface to the CRS &#39;OptiCAL&#39; photometer.</span>
+
+<span class="sd">    Overview</span>
+<span class="sd">    ========</span>
+
+<span class="sd">    The &#39;OptiCAL&#39; is a photometer that is produced by Cambridge Research</span>
+<span class="sd">    Systems (CRS). This device is a standard tool for gamma-calibration of</span>
+<span class="sd">    display devices in vision research. This package provides a free-software</span>
+<span class="sd">    replacement for the Windows-software distributed by the manufacturer that</span>
+<span class="sd">    allows querying an OptiCAL via a serial connection. `pyoptical` can be used</span>
+<span class="sd">    as a library in third-party applications or as a standalone command line</span>
+<span class="sd">    tool.</span>
+
+<span class="sd">    This module provides the `OptiCAL` class and some supporting code. The</span>
+<span class="sd">    command line wrapper for this module can be found in the &#39;pyoptical&#39;</span>
+<span class="sd">    script.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+
+<span class="sd">    Command line:</span>
+<span class="sd">        ``pyoptical --number=15 --interval=750 /dev/ttyUSB0``</span>
+
+<span class="sd">        Make 15 measurements with an interval of 750 ms between them.</span>
+
+<span class="sd">        usage:</span>
+<span class="sd">            ``pyoptical [-i interval] [-n number ] [-r] com-port``</span>
+
+<span class="sd">        For more information try, ``pyoptical --help``. For more information</span>
+<span class="sd">        about the ``com-port`` argument see: `Notes about the com-port`_.</span>
+
+<span class="sd">    Library:</span>
+<span class="sd">        &gt;&gt;&gt; import pyoptical</span>
+<span class="sd">        &gt;&gt;&gt; op = pyoptical.OptiCAL(&#39;dev/dev/ttyUSB0&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; try:</span>
+<span class="sd">        &gt;&gt;&gt;     op.read_luminance()</span>
+<span class="sd">        &gt;&gt;&gt; except pyoptical.NACKException as e:</span>
+<span class="sd">        &gt;&gt;&gt;     print(e)</span>
+
+<span class="sd">    Notes about the com-port</span>
+<span class="sd">    ------------------------</span>
+
+<span class="sd">    The com_port argument for the constructor may vary depending on both</span>
+<span class="sd">    your operating system and how you connect to the OptiCAL. This code</span>
+<span class="sd">    was developed using a usb-to-serial adapter that contains a PL2303</span>
+<span class="sd">    chipset manufactured by Prolific:</span>
+<span class="sd">    http://www.prolific.com.tw/eng/Products.asp?ID=59. The following</span>
+<span class="sd">    sections outline how to access the OptiCAL using pyoptical and a</span>
+<span class="sd">    usb-to-serial adapter containing the prolific chipset. We have not</span>
+<span class="sd">    tried this code using a raw serial port, but would be very</span>
+<span class="sd">    interested to hear from you if you do.</span>
+
+<span class="sd">    Linux (Ubuntu Hardy / Debian Lenny):</span>
+<span class="sd">        Support for the PL2303 chipset is compiled into the kernel, and</span>
+<span class="sd">        the device is automatically recognised. You could check &#39;dmesg&#39;</span>
+<span class="sd">        for the following output::</span>
+
+<span class="sd">            usb 2-1: new full speed USB device using uhci_hcd and address 4</span>
+<span class="sd">            usb 2-1: configuration #1 chosen from 1 choice</span>
+<span class="sd">            pl2303 2-1:1.0: pl2303 converter detected</span>
+<span class="sd">            usb 2-1: pl2303 converter now attached to ttyUSB0</span>
+
+<span class="sd">        In this case the com_port string is simply ``/dev/ttyUSB0``</span>
+
+<span class="sd">    Mac OSX (10.5.8 Leopard)</span>
+<span class="sd">        Support for the PL2303 chipset is provided by the following</span>
+<span class="sd">        open source driver: http://osx-pl2303.sourceforge.net/</span>
+
+<span class="sd">        In this case the com-port string would be something along the</span>
+<span class="sd">        lines of ``/dev/tty.PL2303-xxx``, for example:</span>
+<span class="sd">        ``/dev/tty.PL2303-000031FD``</span>
+
+<span class="sd">    Windows (XP)</span>
+<span class="sd">        The manufacturer of your usb-to-serial adapter should provide</span>
+<span class="sd">        you with drivers.</span>
+
+<span class="sd">        In this case the com-port string would be something like:</span>
+<span class="sd">        ``COM2``, check the device manager for the number of the COM port.</span>
+
+<span class="sd">    Other Operating Systems and Adapters:</span>
+<span class="sd">        This code has two limitations, most importantly pyserial must</span>
+<span class="sd">        support your platform. Secondly, if you wish to use a</span>
+<span class="sd">        usb-to-serial adapter a driver for your target operating system</span>
+<span class="sd">        must be available from the manufacturer or possibly a third</span>
+<span class="sd">        party (for example and open source driver).</span>
+
+<span class="sd">    Notes about possible exceptions</span>
+<span class="sd">    -------------------------------</span>
+
+<span class="sd">    There are three types of exceptions that can happen:</span>
+
+<span class="sd">    - `OptiCALException`</span>
+<span class="sd">    - `NACKException`</span>
+<span class="sd">    - `TimeoutException`</span>
+
+<span class="sd">    The `OptiCALException` is the base class for all exceptions in this</span>
+<span class="sd">    module, and it is used as a general purpose exception to signify</span>
+<span class="sd">    errors on the part of the programmer, do not quietly except these.</span>
+
+<span class="sd">    The `NACKException` is raised when the OptiCAL responds with a ``NACK``</span>
+<span class="sd">    byte. It does this either if the command was not understood or if</span>
+<span class="sd">    the command failed. If this happens during initialization, you may</span>
+<span class="sd">    have to re-initialise the device. If this happens during readout it</span>
+<span class="sd">    should be safe to try again instead of terminating the program.</span>
+
+<span class="sd">    The `TimeoutException` is raised when no answer is received within the</span>
+<span class="sd">    default timeout length. This might be caused by a number of issues,</span>
+<span class="sd">    but essentially means that somehow the communication with the</span>
+<span class="sd">    OptiCAL might be interrupted, for example because it is no longer</span>
+<span class="sd">    connected to the computer.</span>
+
+<span class="sd">    Implementation details</span>
+<span class="sd">    ----------------------</span>
+
+<span class="sd">    The interface is implemented according to the protocol specification in the</span>
+<span class="sd">    OptiCAL-User-Guide Version 4, 1995 including the following amendments:</span>
+
+<span class="sd">    1. To read out the ADC value, an &#39;L&#39; must be sent instead of an &#39;R&#39;</span>
+<span class="sd">    2. The equations to convert from ADC to meaningful units had changed. See</span>
+<span class="sd">       the source code of ``read_luminance()`` for details.</span>
+
+<span class="sd">    The full errata is available from the CSR website:</span>
+
+<span class="sd">    http://support.crsltd.com/FileManagement/Download/9f5f62bcb3e64eb8934fe72afb937cb6</span>
+
+<span class="sd">    The corrected versions of the conversion formulas can also be found</span>
+<span class="sd">    in the OptiCAL.py python interface available from the CRS website,</span>
+<span class="sd">    written by Walter F. Bischof in 2007. However note that this code may</span>
+<span class="sd">    contain a bug, see</span>
+<span class="sd">    http://groups.google.com/group/psychopy-users/msg/9cb35590daf3a29b</span>
+<span class="sd">    for detail.</span>
+
+<span class="sd">    The constructor will first perform the initial calibration of the</span>
+<span class="sd">    device as required by the protocol specification. Next it will read</span>
+<span class="sd">    out all parameters from the eeprom and store them as private</span>
+<span class="sd">    variables. And lastly it will put the device into the default mode.</span>
+
+<span class="sd">    The initial version of the OptiCAL hardware supported two readout</span>
+<span class="sd">    modes &#39;current&#39; and &#39;voltage&#39;. The device could be used to read</span>
+<span class="sd">    luminance when in &#39;current&#39; mode and &#39;voltage&#39; when in voltage mode.</span>
+<span class="sd">    Over the years there have been two revisions of the OptiCAL</span>
+<span class="sd">    hardware, both no longer supported usage as a voltmeter, and thus</span>
+<span class="sd">    the &#39;voltage&#39; mode has become redundant. Since version 0.2 this</span>
+<span class="sd">    interface no longer supports the &#39;voltage&#39; mode, and the device will</span>
+<span class="sd">    be put into &#39;current&#39; mode at startup.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.4&quot;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Valentin Haenel &lt;valentin.haenel@gmx.de&gt;&quot;</span>
+<span class="n">__docformat__</span> <span class="o">=</span> <span class="s2">&quot;restructuredtext en&quot;</span>
+
+<span class="kn">import</span> <span class="nn">serial</span>
+
+
+<div class="viewcode-block" id="OptiCAL">
+<a class="viewcode-back" href="../../../coder/optical/#psychopy_crs.optical.OptiCAL">[docs]</a>
+<span class="k">class</span> <span class="nc">OptiCAL</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Object to access the OptiCAL &quot;&quot;&quot;</span>
+
+    <span class="n">_ACK</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\x06</span><span class="s1">&#39;</span>
+    <span class="n">_NACK</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\x15</span><span class="s1">&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">com_port</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; initialise OptiCAL</span>
+
+<span class="sd">            :Parameters:</span>
+<span class="sd">                com_port : string</span>
+<span class="sd">                    name of the com-port</span>
+<span class="sd">                timeout : float</span>
+<span class="sd">                    time in seconds to wait for a response</span>
+
+<span class="sd">            For more information about the ``com_port`` argument see:</span>
+<span class="sd">            the &#39;``Notes about the com-port``&#39; section in the module docstring.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_phot</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">com_port</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_calibrate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_read_ref_defs</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_read_other_defs</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_current_mode</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Optical found at : &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_phot</span><span class="o">.</span><span class="n">port</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> \
+               <span class="s2">&quot;Product Type :     &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_product_type</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> \
+               <span class="s2">&quot;Optical S/N  :     &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_optical_serial_number</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>\
+               <span class="s2">&quot;Firmware version : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_firmware_version</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> \
+               <span class="s2">&quot;V_ref:             &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_V_ref</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> \
+               <span class="s2">&quot;Z_count:           &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Z_count</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> \
+               <span class="s2">&quot;R_feed:            &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_R_feed</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> \
+               <span class="s2">&quot;R_gain:            &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_R_gain</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> \
+               <span class="s2">&quot;Probe S/N          &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_probe_serial_number</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>\
+               <span class="s2">&quot;K_cal:             &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_K_cal</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_send_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">description</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; send a single command character and read a single response (ACK/NACK)</span>
+
+<span class="sd">            :Parameters:</span>
+<span class="sd">                command : chr</span>
+<span class="sd">                    the command character</span>
+<span class="sd">                description : string</span>
+<span class="sd">                    a string describing the command</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_phot</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_phot</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">_check_return</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">description</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_calibrate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; perform initial calibration</span>
+
+<span class="sd">            As stated in the OptiCAL user guide, this must be done after</span>
+<span class="sd">            powering up the device, before any readouts are performed.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_send_command</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s2">&quot;calibrate&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_set_current_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; put the device into &#39;current&#39; mode &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_send_command</span><span class="p">(</span><span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s2">&quot;set current mode&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_read_eeprom_single</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; read contents of eeprom at single address</span>
+
+<span class="sd">            note: the ACK byte is truncated</span>
+
+<span class="sd">            :Parameters:</span>
+<span class="sd">                address : int</span>
+<span class="sd">                    address in the range 0&lt;i&lt;100</span>
+
+<span class="sd">            :Return:</span>
+<span class="sd">                (string) - a byte in the range 0&lt;i&lt;256</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_phot</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mi">128</span> <span class="o">+</span> <span class="n">address</span><span class="p">))</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_phot</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">_check_return</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="s2">&quot;reading eeprom at address </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">address</span><span class="p">)</span>
+        <span class="c1"># if _check_return does not raise an exception</span>
+        <span class="k">return</span> <span class="n">ret</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_read_eeprom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; read contents of eeprom between start and stop inclusive</span>
+
+<span class="sd">            :Parameters:</span>
+<span class="sd">                start : int</span>
+<span class="sd">                    address in the range 0&lt;i&lt;100</span>
+<span class="sd">                stop : int</span>
+<span class="sd">                    address in the range 0&lt;i&lt;100</span>
+
+<span class="sd">            :Returns:</span>
+<span class="sd">                (string of bytes) - each character in the range 0&lt;i&lt;255</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_read_eeprom_single</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)])</span>
+
+    <span class="k">def</span> <span class="nf">_read_product_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_to_int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_read_eeprom</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_read_optical_serial_number</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_to_int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_read_eeprom</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_read_firmware_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">_to_int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_read_eeprom</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">)))</span> <span class="o">/</span> <span class="mi">100</span>
+
+    <span class="k">def</span> <span class="nf">_read_probe_serial_number</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_read_eeprom</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">95</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_read_other_defs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; read all parameters that do not have a ref definition &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_product_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_product_type</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_optical_serial_number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_optical_serial_number</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_firmware_version</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_firmware_version</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_probe_serial_number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_probe_serial_number</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_read_V_ref</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; reference voltage in microV &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_to_int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_read_eeprom</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">19</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_read_Z_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; zero error in ADC counts &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_to_int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_read_eeprom</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">35</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_read_R_feed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; feedback resistor in Ohm &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_to_int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_read_eeprom</span><span class="p">(</span><span class="mi">48</span><span class="p">,</span> <span class="mi">51</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_read_R_gain</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; voltage gain resistor in Ohm &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_to_int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_read_eeprom</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">67</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_read_K_cal</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; probe calibration in fA/cd/m**2 &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_to_int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_read_eeprom</span><span class="p">(</span><span class="mi">96</span><span class="p">,</span> <span class="mi">99</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_read_ref_defs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; read all parameters with a ref definition &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_V_ref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_V_ref</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_Z_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_Z_count</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_R_feed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_R_feed</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_R_gain</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_R_gain</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_K_cal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_K_cal</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_read_adc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; read and adjust the ADC value &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_phot</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_phot</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">_check_return</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="s2">&quot;reading adc value&quot;</span><span class="p">)</span>
+        <span class="c1"># truncate the ACK</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">ret</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># obtain an integer value from the bytes</span>
+        <span class="n">adc</span> <span class="o">=</span> <span class="n">_to_int</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">adc</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Z_count</span> <span class="o">-</span> <span class="mi">524288</span>
+
+<div class="viewcode-block" id="OptiCAL.read_luminance">
+<a class="viewcode-back" href="../../../coder/optical/#psychopy_crs.optical.OptiCAL.read_luminance">[docs]</a>
+    <span class="k">def</span> <span class="nf">read_luminance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; the luminance in cd/m**2 &quot;&quot;&quot;</span>
+        <span class="n">ADC_adjust</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_adc</span><span class="p">()</span>
+        <span class="n">numerator</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">ADC_adjust</span><span class="p">)</span> <span class="o">/</span> <span class="mi">524288</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_V_ref</span> <span class="o">*</span> <span class="mf">1.e-6</span>
+        <span class="n">denominator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_R_feed</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_K_cal</span> <span class="o">*</span> <span class="mf">1.e-15</span>
+        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denominator</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="k">def</span> <span class="nf">_to_int</span><span class="p">(</span><span class="n">byte_string</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; convert a string of bytes(in least significant byte order) to int &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">byte_string</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">),</span> <span class="mi">16</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_check_return</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">description</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; check the return value of a read, raise exception if its not OK &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">TimeoutException</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+    <span class="c1"># check the last byte only</span>
+    <span class="k">elif</span> <span class="n">ret</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">OptiCAL</span><span class="o">.</span><span class="n">_NACK</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">NACKException</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="OptiCALException">
+<a class="viewcode-back" href="../../../coder/optical/#psychopy_crs.optical.OptiCALException">[docs]</a>
+<span class="k">class</span> <span class="nc">OptiCALException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; base exception for all OptiCAL exceptions &quot;&quot;&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="NACKException">
+<a class="viewcode-back" href="../../../coder/optical/#psychopy_crs.optical.NACKException">[docs]</a>
+<span class="k">class</span> <span class="nc">NACKException</span><span class="p">(</span><span class="n">OptiCALException</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; raised when the OptiCAL sends a NACK byte to signify an error&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;OptiCAL sent a NACK while trying to: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">message</span></div>
+
+
+
+<div class="viewcode-block" id="TimeoutException">
+<a class="viewcode-back" href="../../../coder/optical/#psychopy_crs.optical.TimeoutException">[docs]</a>
+<span class="k">class</span> <span class="nc">TimeoutException</span><span class="p">(</span><span class="n">OptiCALException</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; raised when the OptiCAL does not respond within the timeout limit &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;OptiCAL timeout while trying to: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">message</span></div>
+
+</pre></div>
+
+      <br/><a href="#" class="pull-right">Back to top</a>
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <span class="pull-right">
+      
+        
+      <br/>
+
+          &copy; 2002-2018 <a href="https://www.peirce.org.uk/">Jonathan Peirce</a><br/>
+          &copy; 2019 <a href="https://opensciencetools.org/">Open Science Tools Ltd.</a><br/><br/>
+        PsychoPy<sup>®</sup> and Pavlovia<sup>®</sup> are registered trademarks of Open Science Tools Ltd.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.3.7.<br/><br/>
+    </span>
+
+    <a href="http://www.nottingham.ac.uk/"><img src="../../../_static/Nottingham Supported.png", alt="Uni of Nottingham" width=250></a>
+  </div>
+
+</footer>
+  </body>
+</html>

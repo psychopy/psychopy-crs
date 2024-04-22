@@ -1,0 +1,2575 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Bits &#8212; PsychoPy Example Plugin 0.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=536c50fe" />
+    <link rel="stylesheet" type="text/css" href="../../_static/psychopy.css?v=b9f4e6dd" />
+    <script src="../../_static/documentation_options.js?v=d20be8f5"></script>
+    <script src="../../_static/doctools.js?v=b682be12"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../../_static/js/jquery-fix.js"></script>
+    <script src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Color CAL" href="../colorcal/" />
+    <link rel="prev" title="Welcome to psychopy-crs’s documentation!" href="../../" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-4089651-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-4089651-2');
+    </script>
+
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+      _paq.push(["setCookieDomain", "*.psychopy.org"]);
+      _paq.push(["setDomains", ["*.psychopy.org","*.discourse.psychopy.org"]]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//analytics.opensciencetools.org/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '3']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//analytics.opensciencetools.org/matomo.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+    <!-- End Matomo Code -->
+
+
+  </head><body>
+
+<!-- The social media icon bar -->
+<div class="social-bar">
+  <a href="" class="github">
+    <i class="fab fa-github"></i></a>
+</div>
+
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand small-logo" href="../../">
+          <img src="../../_static/Psychopy Plugin Header Small.png" alt="PsychoPy Logo">
+        </a>
+        <a class="navbar-brand large-logo" href="../../">
+          <img src="../../_static/Psychopy Plugin Header Large.png" alt="PsychoPy Logo">
+        </a>
+        <!-- <span class="navbar-text navbar-version pull-right"><b></b></span> -->
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse w-100 pull-right">
+          <ul class="nav navbar-nav ml-auto">
+            <li><a href="../../">Home</a></li>
+            <li><a href="../../download/">Install</a></li>
+            
+            <li><a href="https://plugins.psychopy.org/directory.html" class="return-btn">plugins.psychopy.org</a></li>
+            
+              <!-- <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../">Documentation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption" role="heading"><span class="caption-text">Added content for Coder</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colorcal/">Color CAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optical/">Opti CAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shaders/">Shaders</a></li>
+</ul>
+</ul>
+</li> -->
+              
+            
+            <!--  -->
+            
+            
+          </ul>
+
+            <!-- 
+              
+<form class="navbar-form navbar-right" action="../../search/" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+             -->
+
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 content">
+      
+  <section id="module-psychopy_crs.bits">
+<span id="bits"></span><h1>Bits<a class="headerlink" href="#module-psychopy_crs.bits" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsPlusPlus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.bits.</span></span><span class="sig-name descname"><span class="pre">BitsPlusPlus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">win</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nEntries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'bits++'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rampType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'configFile'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frameRate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsPlusPlus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsPlusPlus" title="Link to this definition">¶</a></dt>
+<dd><p>The main class to control a Bits++ box.
+This is usually a class added within the window object and is
+typically accessed from there. e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span>
+<span class="kn">from</span> <span class="nn">psychopy.hardware</span> <span class="kn">import</span> <span class="n">crs</span>
+<span class="n">win</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">([</span><span class="mi">800</span><span class="p">,</span><span class="mi">600</span><span class="p">])</span>
+<span class="n">bits</span> <span class="o">=</span> <span class="n">crs</span><span class="o">.</span><span class="n">BitsPlusPlus</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;bits++&#39;</span><span class="p">)</span>
+<span class="c1"># use bits++ to reduce the whole screen contrast by 50%:</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">setContrast</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsPlusPlus.getPackets">
+<span class="sig-name descname"><span class="pre">getPackets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsPlusPlus.getPackets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsPlusPlus.getPackets" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the number of packets available for trigger pulses.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsPlusPlus.primeClock">
+<span class="sig-name descname"><span class="pre">primeClock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsPlusPlus.primeClock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsPlusPlus.primeClock" title="Link to this definition">¶</a></dt>
+<dd><p>Primes the clock to reset at the next screen
+flip - note only 1 clock reset signal will be issued
+but if the frame(s) after the reset frame is
+dropped the reset will be re-issued thus keeping timing good.</p>
+<p>Resets continute to be issued on each video frame until
+the next win.flip so you need to have regular win.flips for
+this function to work properly.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">primeClock</span><span class="p">()</span>
+<span class="n">drawImage</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">response</span>
+    <span class="c1">#do some processing</span>
+    <span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Will get a clock reset signal ready but won’t issue it until the first win.flip in the loop.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsPlusPlus.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsPlusPlus.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsPlusPlus.reset" title="Link to this definition">¶</a></dt>
+<dd><p>Deprecated: This was used on the old Bits++
+to power-cycle the box.
+It required the compiled dll, which only worked
+on windows and doesn’t work with Bits# or Display++.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsPlusPlus.resetClock">
+<span class="sig-name descname"><span class="pre">resetClock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsPlusPlus.resetClock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsPlusPlus.resetClock" title="Link to this definition">¶</a></dt>
+<dd><p>Issues a clock reset code using 1 screen flip
+if the next frame(s) is dropped the reset will be
+re-issued thus keeping timing good.</p>
+<p>Resets continue to be issued on each video frame until
+the next win.flip so you need to have regular win.flips for
+this function to work properly.</p>
+<p class="rubric">Example</p>
+<p>bits.resetClock()
+drawImage()
+bits.win.flip()</p>
+<p>Will issue clock resets while the image is being drawn then
+display the image and allow the clock to continue from the
+same frame.</p>
+<p class="rubric">Example</p>
+<p>bits.resetClock()
+bits.RTBoxWait()
+bits.win.flip()</p>
+<p>Will issue clock resets until a button is pressed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsPlusPlus.sendTrigger">
+<span class="sig-name descname"><span class="pre">sendTrigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triggers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">onTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">65535</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsPlusPlus.sendTrigger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsPlusPlus.sendTrigger" title="Link to this definition">¶</a></dt>
+<dd><p>Sends a single trigger using up 1 win.flip.
+The trigger will be sent on the following frame.</p>
+<p>The triggers will continue until after the next win.flip.</p>
+<p>Actions are always 1 frame after the request.</p>
+<p>May do odd things if Goggles and Analog are also
+in use.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">sendTrigger</span><span class="p">(</span><span class="mb">0b0000000010</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Will send a 4ms puilse on DOUT1 2ms after the start of the frame.
+Due to the following win.flip() the pulse should last for 1 frame only.</p>
+<p>Triggers will continue until stopTrigger is called.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsPlusPlus.setContrast">
+<span class="sig-name descname"><span class="pre">setContrast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contrast</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">LUTrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gammaCorrect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsPlusPlus.setContrast"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsPlusPlus.setContrast" title="Link to this definition">¶</a></dt>
+<dd><p>Set the contrast of the LUT for ‘bits++’ mode only
+:Parameters:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>contrast<span class="classifier">float in the range 0:1</span></dt><dd><p>The contrast for the range being set</p>
+</dd>
+<dt>LUTrange<span class="classifier">float or array</span></dt><dd><p>If a float is given then this is the fraction of the LUT
+to be used. If an array of floats is given, these will
+specify the start / stop points as fractions of the LUT.
+If an array of ints (0-255) is given these determine the
+start stop <em>indices</em> of the LUT</p>
+</dd>
+</dl>
+</div></blockquote>
+<p class="rubric">Examples</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>setContrast(1.0,0.5)</cite> to set the central 50% of the LUT so that a stimulus with</dt><dd><p>contr=0.5 will actually be drawn with contrast 1.0</p>
+</dd>
+</dl>
+</li>
+<li><p><cite>setContrast(1.0,[0.25,0.5])</cite></p></li>
+<li><dl class="simple">
+<dt>or <cite>setContrast(1.0,[63,127])</cite> to set the lower-middle quarter of the LUT</dt><dd><p>(which might be useful in LUT animation paradigms)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsPlusPlus.setGamma">
+<span class="sig-name descname"><span class="pre">setGamma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newGamma</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsPlusPlus.setGamma"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsPlusPlus.setGamma" title="Link to this definition">¶</a></dt>
+<dd><p>Set the LUT to have the requested gamma value
+Currently also resets the LUT to be a linear contrast
+ramp spanning its full range. May change this to read
+the current LUT, undo previous gamma and then apply
+new one?</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsPlusPlus.setLUT">
+<span class="sig-name descname"><span class="pre">setLUT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newLUT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gammaCorrect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">LUTrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsPlusPlus.setLUT"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsPlusPlus.setLUT" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the LUT to a specific range of values in ‘bits++’ mode only
+Note that, if you leave gammaCorrect=True then any LUT values you
+supply will automatically be gamma corrected.
+The LUT will take effect on the next <cite>Window.flip()</cite></p>
+<p><strong>Examples</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>bitsBox.setLUT()</cite> to build a LUT using bitsBox.contrast and bitsBox.gamma</p></li>
+<li><p><cite>bitsBox.setLUT(newLUT=some256x1array)</cite> (NB array should be float 0.0:1.0)
+Builds a luminance LUT using newLUT for each gun
+(actually array can be 256x1 or 1x256)</p></li>
+<li><p><cite>bitsBox.setLUT(newLUT=some256x3array)</cite>
+(NB array should be float 0.0:1.0)
+Allows you to use a different LUT on each gun</p></li>
+</ul>
+</div></blockquote>
+<p>(NB by using BitsBox.setContr() and BitsBox.setGamma() users may not
+need this function)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsPlusPlus.setTrigger">
+<span class="sig-name descname"><span class="pre">setTrigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triggers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">onTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">65535</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsPlusPlus.setTrigger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsPlusPlus.setTrigger" title="Link to this definition">¶</a></dt>
+<dd><p>Quick way to set up triggers.</p>
+<p>Triggers is a binary word that determines which
+triggers will be turned on.</p>
+<p>onTime specifies the start time of the trigger within
+the frame (in S with 100uS resolution)</p>
+<p>Duration specifies how long the trigger will last.
+(in S with 100uS resolution).</p>
+<p>Note that mask only protects the digital output lines
+set by other activities in the Bits. Not other triggers.</p>
+<dl class="simple">
+<dt>Example::</dt><dd><p>bits.setTrigger(0b0000000010, 2.0, 4.0, 0b0111111111)
+bits.startTrigger()</p>
+</dd>
+</dl>
+<p>Will issue a 4ms long high-going pulse, 2ms after the start
+of each frame on DOUT1 while protecting the value of DOUT 9.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsPlusPlus.setTriggerList">
+<span class="sig-name descname"><span class="pre">setTriggerList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triggerList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">65535</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsPlusPlus.setTriggerList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsPlusPlus.setTriggerList" title="Link to this definition">¶</a></dt>
+<dd><p>Sets up Trigger pulses in Bits++ using the fine grained
+method that can control every trigger line at 100uS
+intervals.</p>
+<p>TriggerList should contain 1 entry for every 100uS
+packet (see getPackets) the binary word in each entry
+specifies which trigger line will be active during that
+time slot.</p>
+<p>Note that mask only protects the digital output lines
+set by other activities in the Bits. Not other triggers.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">packet</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_NumberPackets</span>
+<span class="n">packet</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mb">0b0000000010</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">setTriggerList</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Will sens a 100us pulse on DOUT1 at the start of the frame.</p>
+<blockquote>
+<div><p>Example 2:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">packet</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_NumberPackets</span>
+<span class="n">packet</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="mb">0b0000000010</span>
+<span class="n">packet</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span> <span class="o">=</span> <span class="mb">0b0000000001</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">setTriggerList</span><span class="p">(</span><span class="n">packet</span><span class="p">)</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">startTrigger</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Will sens a 100us pulse on DOUT1 1000us after the start of the
+frame and a second 100us pusle on DOUT0 2000us after the start of
+the frame.</p>
+<p>Triggers will continue until stopTrigger is called.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsPlusPlus.startGoggles">
+<span class="sig-name descname"><span class="pre">startGoggles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsPlusPlus.startGoggles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsPlusPlus.startGoggles" title="Link to this definition">¶</a></dt>
+<dd><p>Starts CRS stereo goggles. Note if you are
+using FE-1 goggles you should start this before
+connecting the goggles.</p>
+<p>Left is the state of the left shutter on the
+first frame to be presented 0, False or
+‘closed’=closed; 1, True or ‘open’ = open,</p>
+<p>right is the state of the right shutter on the
+first frame to be presented 0, False or
+‘closed’=closed; 1, True or ‘open’ = open</p>
+<p>Note you can set the goggles to be both open
+or both closed on the same frame.</p>
+<p>The system will always toggle the state of
+each lens so as to not damage FE-1 goggles.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">startGoggles</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">response</span>
+    <span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+    <span class="c1">#do some processing</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">stopGoggles</span><span class="p">()</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Starts toggling the goggles with the right eye open in sync with the
+first win.flip() within the loop. The open eye will alternate.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">startGoggles</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">response</span><span class="p">:</span>
+    <span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+    <span class="c1">#do some processing</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">stopGoggles</span><span class="p">()</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Starts toggling the goggle with both eyes open in sync with the first
+win.flip() within the loop. Eyes will alternate between both open and both closed.</p>
+<p>Note it is safe to leave the goggles toggling forever, ie to never call stopGoggles().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsPlusPlus.startTrigger">
+<span class="sig-name descname"><span class="pre">startTrigger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsPlusPlus.startTrigger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsPlusPlus.startTrigger" title="Link to this definition">¶</a></dt>
+<dd><p>Start sending triggers on the next win flip
+and continue until stopped by stopTrigger
+Triggers start 1 frame after the frame on which
+the first trigger is sent.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">setTrigger</span><span class="p">(</span><span class="mb">0b0000000010</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mb">0b0111111111</span><span class="p">)</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">startTrigger</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">imageOn</span><span class="p">:</span>
+    <span class="c1">#do some processing</span>
+    <span class="k">continue</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">stopTrigger</span><span class="p">()</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsPlusPlus.stopGoggles">
+<span class="sig-name descname"><span class="pre">stopGoggles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsPlusPlus.stopGoggles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsPlusPlus.stopGoggles" title="Link to this definition">¶</a></dt>
+<dd><p>Stop the stereo goggles from toggling</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">startGoggles</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">response</span><span class="p">:</span>
+    <span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+    <span class="c1">#do some processing</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">stopGoggles</span><span class="p">()</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Starts toggling the goggles with the right eye open in sync with the
+first win.flip(0) within the loop. The open eye will alternate.</p>
+<p>Note it is safer to leave the goggles toggling forever, ie to never call stopGoggles().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsPlusPlus.stopTrigger">
+<span class="sig-name descname"><span class="pre">stopTrigger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsPlusPlus.stopTrigger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsPlusPlus.stopTrigger" title="Link to this definition">¶</a></dt>
+<dd><p>Stop sending triggers at the next win flip</p>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">setTrigger</span><span class="p">(</span><span class="mb">0b0000000010</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mb">0b0111111111</span><span class="p">)</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">startTrigger</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">imageOn</span><span class="p">:</span>
+    <span class="c1">#do some processing</span>
+    <span class="k">continue</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">stopTrigger</span><span class="p">()</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsPlusPlus.syncClocks">
+<span class="sig-name descname"><span class="pre">syncClocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsPlusPlus.syncClocks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsPlusPlus.syncClocks" title="Link to this definition">¶</a></dt>
+<dd><p>Synchronise the Bits/RTBox Clock with the host clock
+Given by t.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.bits.</span></span><span class="sig-name descname"><span class="pre">BitsSharp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp" title="Link to this definition">¶</a></dt>
+<dd><p>A class to support functions of the Bits# (and most Display++ functions
+This device uses the CDC (serial port) connection to the Bits box.
+To use it you must have followed the instructions from CRS Ltd. to get
+your box into the CDC communication mode.
+Typical usage (also see demo in Coder view demos&gt;hardware&gt;BitsBox ):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">visual</span>
+<span class="kn">from</span> <span class="nn">psychopy.hardware</span> <span class="kn">import</span> <span class="n">crs</span>
+<span class="c1"># we need to be rendering to framebuffer</span>
+<span class="n">win</span> <span class="o">=</span> <span class="n">visual</span><span class="o">.</span><span class="n">Window</span><span class="p">([</span><span class="mi">1024</span><span class="p">,</span><span class="mi">768</span><span class="p">],</span> <span class="n">useFBO</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">bits</span> <span class="o">=</span> <span class="n">crs</span><span class="o">.</span><span class="n">BitsSharp</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;mono++&#39;</span><span class="p">)</span>
+<span class="c1"># You can continue using your window as normal and OpenGL shaders</span>
+<span class="c1"># will convert the output as needed</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bits</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">bits</span><span class="o">.</span><span class="n">OK</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;failed to connect to Bits box&#39;</span><span class="p">)</span>
+    <span class="n">core</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+<span class="n">core</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="c1"># now, you can change modes using</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;mono++&#39;</span> <span class="c1"># &#39;color++&#39;, &#39;mono++&#39;, &#39;bits++&#39;, &#39;status&#39;</span>
+</pre></div>
+</div>
+<p>Note that the firmware in Bits# boxes varies over time and some features of
+this class may not work for all firmware versions. Also Bits# boxes can be
+configured in various ways via their config.xml file so this class makes certain
+assumptions about the configuration. In particular it is assumed that all
+digital inputs, triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+<p>RTBox commands that reset the key mapping have been found not to work
+one some firmware</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.RTBoxAddKeys">
+<span class="sig-name descname"><span class="pre">RTBoxAddKeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.RTBoxAddKeys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.RTBoxAddKeys" title="Link to this definition">¶</a></dt>
+<dd><p>Add key mappings to an existing map.
+RTBox events can be mapped to a number of physical events on Bits#
+They can be mapped to digital input lines, triggers and CB6 IR input channels.
+The format for map is a list of tuples with each tuple containing the name of the
+RTBox button to be mapped and its source eg (‘btn1’,’Din1’) maps physical input Din1 to
+logical button btn1.
+RTBox has four logical buttons (btn1-4) and three auxiliary events (light, pulse and trigger)
+Buttons/events can be mapped to multiple physical inputs and stay mapped until reset.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">RTBoxSetKeys</span><span class="p">([(</span><span class="s1">&#39;btn1&#39;</span><span class="p">,</span><span class="s1">&#39;Din0),(&#39;</span><span class="n">btn2</span><span class="s1">&#39;,&#39;</span><span class="n">Din1</span><span class="s1">&#39;)])</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">RTBoxAddKeys</span><span class="p">([(</span><span class="s1">&#39;btn1&#39;</span><span class="p">,</span><span class="s1">&#39;IRButtonA&#39;</span><span class="p">),((</span><span class="s1">&#39;btn2&#39;</span><span class="p">,</span><span class="s1">&#39;IRButtonB&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>Will link Din0 to button 1 and Din1 to button 2.
+Then adds IRButtonA and IRButtonB alongside the original mappings.</p>
+<p>Now both hard wired and IR inputs will - emulating the same logical button press.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. Such variations may affect key mappings for RTBox
+commands.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.RTBoxCalibrate">
+<span class="sig-name descname"><span class="pre">RTBoxCalibrate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.RTBoxCalibrate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.RTBoxCalibrate" title="Link to this definition">¶</a></dt>
+<dd><p>Used to assess error between host clock and Bits#
+button press time stamps.</p>
+<p>Prints each sample provided and returns the mean error.</p>
+<p>The clock willnever be completely in sync but the aim is that there
+should be that the difference between them should not grow over
+a serise of button presses.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. Such variations may affect key mappings for RTBox
+commands.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.RTBoxClear">
+<span class="sig-name descname"><span class="pre">RTBoxClear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.RTBoxClear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.RTBoxClear" title="Link to this definition">¶</a></dt>
+<dd><p>Flushes the serial input buffer.
+Its good to do this before and after data collection.
+This just calls flush() so is a wrapper for RTBox.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.RTBoxDisable">
+<span class="sig-name descname"><span class="pre">RTBoxDisable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.RTBoxDisable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.RTBoxDisable" title="Link to this definition">¶</a></dt>
+<dd><p>Disables the detection of RTBox events.
+This is useful to stop the Bits# from reporting key presses
+When you no longer need them. Nad must be done before using any
+other data logging methods.</p>
+<p>It undoes any button - input mappings.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. Such variations may affect key mappings for RTBox
+commands.</p>
+<p>The ability to reset keys mappings has been found not to work
+on some Bits# firmware.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.RTBoxEnable">
+<span class="sig-name descname"><span class="pre">RTBoxEnable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.RTBoxEnable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.RTBoxEnable" title="Link to this definition">¶</a></dt>
+<dd><p>Sets up the RTBox with preset or bespoke mappings
+and enables event detection.</p>
+<p>RTBox events can be mapped to a number of physical events on Bits#
+They can be mapped to digital input lines, tigers and
+CB6 IR input channels.</p>
+<p>Mode is a list of strings.
+Preset mappings  provided via mode:</p>
+<ul class="simple">
+<li><p><cite>CB6</cite> for the CRS CB6 IR response box.</p></li>
+<li><p><cite>IO</cite> for a three button box connected to Din0-2</p></li>
+<li><p><cite>IO6</cite> for a six button box connected to Din0-5</p></li>
+</ul>
+<p>If mode = None or is not set then the value of self.RTBoxMode is used.</p>
+<p>Bespoke Mappings over write preset ones.</p>
+<p>The format for map is a list of tuples with each tuple
+containing the name of the
+RT Box button to be mapped and its source
+eg (‘btn1’,’Din0’) maps physical input Din0 to
+logical button btn1.</p>
+<p>Note the lowest number button event is Btn1</p>
+<p>RTBox has four logical buttons (btn1-4) and
+three auxiliary events (light, pulse and trigger)
+Buttons/events can be mapped to multiple physical
+inputs and stay mapped until reset.</p>
+<p>Mode is a list of string or list of strings that contains
+keywords to determine present mappings and modes for RTBox.</p>
+<ul class="simple">
+<li><p>If mode includes ‘Down’ button events will be detected when pressed.</p></li>
+<li><p>If mode includes ‘Up’ button events will be detected when released.</p></li>
+</ul>
+<p>You can detect both types of event but note that pulse, light and trigger events
+don’t have an ‘Up’ mode.</p>
+<p>If Trigger is included in mode the trigger event will be mapped to the trigIn connector.</p>
+<p>Example:
+.. code-block:: python</p>
+<blockquote>
+<div><p>bits.RTBoxEnable(mode = [‘Down’]), map = [(‘btn1’,’Din0’), (‘btn2’,’Din1’)]</p>
+</div></blockquote>
+<p>enables the RTBox emulation to detect Down events on buttons 1 and 2 where they are
+mapped to DIN0 and DIN1.</p>
+<p>Example:
+.. code-block:: python</p>
+<blockquote>
+<div><p>bits.RTBoxEnable(mode = [‘Down’,’CB6’])</p>
+</div></blockquote>
+<p>enables the RTBox emulation to detect Down events on the standard CB6 IR response box keys.</p>
+<p>If no key direction has been set (mode does not contain ‘Up’ or ‘Down’) the default is ‘Down’.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. Such variations may affect key mappings for RTBox
+commands.</p>
+<p>The ability to reset keys mappings has been found not to work
+on some Bits# firmware.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.RTBoxKeysPressed">
+<span class="sig-name descname"><span class="pre">RTBoxKeysPressed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.RTBoxKeysPressed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.RTBoxKeysPressed" title="Link to this definition">¶</a></dt>
+<dd><p>Check to see if (at least) the appropriate number
+of RTBox style key presses have been made.</p>
+<p class="rubric">Example</p>
+<p>bits.RTBoxKeysPressed(5)</p>
+<p>will return false until 5 button presses have been recorded.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. Such variations may affect key mappings for RTBox
+commands.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.RTBoxResetKeys">
+<span class="sig-name descname"><span class="pre">RTBoxResetKeys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.RTBoxResetKeys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.RTBoxResetKeys" title="Link to this definition">¶</a></dt>
+<dd><p>Resets the key mappings to no mapping.
+Has the effect of disabling RTBox input.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. Such variations may affect key mappings for RTBox
+commands.</p>
+<p>The ability to reset keys mappings has been found not to work
+on some Bits# firmware.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.RTBoxSetKeys">
+<span class="sig-name descname"><span class="pre">RTBoxSetKeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.RTBoxSetKeys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.RTBoxSetKeys" title="Link to this definition">¶</a></dt>
+<dd><p>Set key mappings: first resets existing then adds new ones.
+Does not reset any event that is not in the new list.
+RTBox events can be mapped to a number of physical events on Bits#
+They can be mapped to digital input lines, triggers and CB6 IR input channels.
+The format for map is a list of tuples with each tuple containing the name of the
+RTBox button to be mapped and its source eg (‘btn1’,’Din1’) maps physical input Din1 to
+logical button btn1.</p>
+<p>RTBox has four logical buttons (btn1-4) and three auxiliary events (light, pulse and trigger)
+Buttons/events can be mapped to multiple physical inputs and stay mapped until reset.</p>
+<p class="rubric">Example</p>
+<p>bits.RTBoxSetKeys([(‘btn1’,’Din0),(‘light’,’Din9’)])</p>
+<p>Will link Din0 to button 1 and Din9 to the the light input emulation.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. Such variations may affect key mappings for RTBox
+commands.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.RTBoxWait">
+<span class="sig-name descname"><span class="pre">RTBoxWait</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.RTBoxWait"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.RTBoxWait" title="Link to this definition">¶</a></dt>
+<dd><p>Waits until (at least) one
+of RTBox style key presses have been made
+Pauses program execution in mean time.</p>
+<p class="rubric">Example</p>
+<p>res = bits.RTBoxWait()</p>
+<p>will suspend all other activity until 1 button press has been
+recorded and will then return a dict / structure containing results.</p>
+<p>Results can be accessed as follows:</p>
+<dl class="simple">
+<dt>structure</dt><dd><p>res.dir, res.button, res.time</p>
+</dd>
+<dt>or dictionary</dt><dd><p>res[‘dir’], res[‘button’], res[‘time’]</p>
+</dd>
+</dl>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. Such variations may affect key mappings for RTBox
+commands.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.RTBoxWaitN">
+<span class="sig-name descname"><span class="pre">RTBoxWaitN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.RTBoxWaitN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.RTBoxWaitN" title="Link to this definition">¶</a></dt>
+<dd><p>Waits until (at least) the appropriate number
+of RTBox style key presses have been made
+Pauses program execution in mean time.</p>
+<p class="rubric">Example</p>
+<p>res = bits.RTBoxWaitN(5)</p>
+<p>will suspend all other activity until 5 button presses have been
+recorded and will then return a list of Dicts containing the 5 results.</p>
+<p>Results can be accessed as follows:</p>
+<dl class="simple">
+<dt>structure</dt><dd><p>res[0].dir, res[0].button, res[0].time</p>
+</dd>
+<dt>or dictionary</dt><dd><p>res[0][‘dir’], res[0][‘button’], res[0][‘time’]</p>
+</dd>
+</dl>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. Such variations may affect key mappings for RTBox
+commands.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.beep">
+<span class="sig-name descname"><span class="pre">beep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">800</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dur</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.beep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.beep" title="Link to this definition">¶</a></dt>
+<dd><p>Make a beep of a given frequency and duration</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.checkConfig">
+<span class="sig-name descname"><span class="pre">checkConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">demoMode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logFile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.checkConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.checkConfig" title="Link to this definition">¶</a></dt>
+<dd><p>Checks whether there is a configuration for this device and
+whether it’s correct</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>level</strong> (<em>integer</em>) – <ul class="simple">
+<li><p>0: do nothing</p></li>
+<li><dl class="simple">
+<dt>1: check that we have a config file and that the graphics</dt><dd><p>card and operating system match that specified in the
+file. Then assume identity LUT is correct</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>2: switch the box to status mode and check that the</dt><dd><p>identity LUT is currently working</p>
+</dd>
+</dl>
+</li>
+<li><p>3: force a fresh search for the identity LUT</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.clock">
+<span class="sig-name descname"><span class="pre">clock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.clock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.clock" title="Link to this definition">¶</a></dt>
+<dd><p>Reads the internal clock of the Bits box via the RTBox
+fortmat but note there will be a delay in reading the value
+back. The fortmat for the return values is the same as for
+button box presses. The return value for button will be 9 and
+the return value for event will be time. The return value for
+time will be the time of the clock at the moment of the request.</p>
+<p class="rubric">Example</p>
+<p>res = bits.clock()
+print(res.time)
+print(res[‘time’])</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.flush">
+<span class="sig-name descname"><span class="pre">flush</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.flush"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.flush" title="Link to this definition">¶</a></dt>
+<dd><p>Flushes the serial input buffer
+Its good to do this before and after data collection,
+And generally quite often.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.gammaCorrectFile">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">gammaCorrectFile</span></span><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.gammaCorrectFile" title="Link to this definition">¶</a></dt>
+<dd><p>Get / set the gamma correction file to be used
+(as stored on the device)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.getAllRTBoxResponses">
+<span class="sig-name descname"><span class="pre">getAllRTBoxResponses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.getAllRTBoxResponses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.getAllRTBoxResponses" title="Link to this definition">¶</a></dt>
+<dd><p>Read all of the RTBox style key presses on the
+input buffer.
+Returns a list of dict like objects with three members
+‘button’, ‘dir’ and ‘time’</p>
+<p>‘button’ is a number from 1 to 9 to indicate the event that
+was detected.
+1-4 are the ‘btn1-btn4’ events, 5 and 6 are the
+‘light’ and ‘pulse’ events,
+7 is the ‘trigger’ event,
+9 is a requested timestamp event (see Clock()).</p>
+<p>‘dir’ is the direction of the event eg ‘up’ or ‘down’,
+trigger is described as ‘on’ when low.</p>
+<p>‘dir’ is set to ‘time’ if a requested
+timestamp event has been detected.</p>
+<p>‘time’ is the timestamp associated with the event.</p>
+<p>Values can be read as a structure eg:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">getAllRTBoxResponses</span><span class="p">()</span>
+<span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dir</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">button</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span>
+</pre></div>
+</div>
+<p>or dictionary:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;dir&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;button&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Note even if only 1 key press was found
+a list of dict / objects is returned</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. Such variations may affect key mappings for RTBox
+commands.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.getAllStatusBoxResponses">
+<span class="sig-name descname"><span class="pre">getAllStatusBoxResponses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.getAllStatusBoxResponses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.getAllStatusBoxResponses" title="Link to this definition">¶</a></dt>
+<dd><p>Read all of the statusBox style key presses on the
+input buffer.
+Returns a list of dict like objects with three members
+‘button’, ‘dir’ and ‘time’</p>
+<p>‘button’ is a number from 1 to 9 to indicate the event that
+was detected.
+1-17 are the ‘btn1-btn17’ events.</p>
+<p>‘dir’ is the direction of the event eg ‘up’ or ‘down’,
+trigger is described as ‘on’ when low.</p>
+<p>‘dir’ is set to ‘time’ if a requested
+timestamp event has been detected.</p>
+<p>‘time’ is the timestamp associated with the event.</p>
+<p>Values can be read as a structure eg:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="o">=</span> <span class="n">getAllStatusBoxResponses</span><span class="p">()</span>
+<span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dir</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">button</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span>
+</pre></div>
+</div>
+<p>or dictionary:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;dir&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;button&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Note even if only 1 key press was found
+a list of dict / objects is returned.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.getAllStatusEvents">
+<span class="sig-name descname"><span class="pre">getAllStatusEvents</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.getAllStatusEvents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.getAllStatusEvents" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the whole status event list</p>
+<p>Returns a list of dictionary like objects with the following entries
+source, input, direction, time.</p>
+<p>source = the general source of the event - e.g.
+DIN for Digital input,
+IR for CB6 IR response box events</p>
+<p>input = the individual input in the source.
+direction = ‘up’ or ‘down’
+time = time stamp.</p>
+<p>All sourses are numbered from zero.
+Din 0 … 9
+IR 0 … 5
+ADC 0 … 5</p>
+<p>mode specifies which directions of events are captured.
+e.g ‘up’ will only report up events.</p>
+<p>The data can be accessed as value[i][‘time’] or value[i].time</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">startStatusLog</span><span class="p">()</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">event</span>
+    <span class="c1">#do some processing</span>
+    <span class="k">continue</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">stopStatusLog</span><span class="p">()</span>
+<span class="n">res</span><span class="o">=</span><span class="n">getAllStatusEvents</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bits</span><span class="o">.</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.getAllStatusValues">
+<span class="sig-name descname"><span class="pre">getAllStatusValues</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.getAllStatusValues"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.getAllStatusValues" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the whole status values list.</p>
+<p>Returns a list of dict like objects with the following entries
+sample, time, trigIn, DIN[10], DWORD, IR[6], ADC[6]
+sample is the sample ID number.
+time is the time stamp.
+trigIn is the value of the trigger input.
+DIN is a list of 10 digital input values.
+DWORD represents the digital inputs as a single decimal value.
+IR is a list of 10 infra-red (IR) input values.
+ADC is a list of 6 analog input values.
+These can be accessed as value[i][‘sample’]
+or value[i].sample, values[i].ADC[j].</p>
+<p>All sourses are numbered from zero.
+Din 0 … 9
+IR 0 … 5
+ADC 0 … 5</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">startStatusLog</span><span class="p">()</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">event</span>
+    <span class="c1">#do some processing</span>
+    <span class="k">continue</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">stopStatusLog</span><span class="p">()</span>
+<span class="n">res</span><span class="o">=</span><span class="n">getAllStatusValues</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bits</span><span class="o">.</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.getAnalog">
+<span class="sig-name descname"><span class="pre">getAnalog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.getAnalog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.getAnalog" title="Link to this definition">¶</a></dt>
+<dd><p>Pulls out the values of the analog inputs for
+the Nth status entry.</p>
+<p>Returns a dictionary with a list of 6 floats (ADC) and a time stamp (time).</p>
+<p>All sourses are numbered from zero.
+ADC 0 … 5</p>
+<p class="rubric">Example</p>
+<p>bits.pollStatus()
+res=bits.getAnalog()
+print(res[‘ADC’])</p>
+<p>will poll the status display the values of the  ADC inputs
+in the first status entry returned.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.getDigital">
+<span class="sig-name descname"><span class="pre">getDigital</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.getDigital"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.getDigital" title="Link to this definition">¶</a></dt>
+<dd><p>Pulls out the values of the digital inputs for
+the Nth status entry.</p>
+<p>Returns a dictionary with a list of 10 ints that
+are 1 or 0 (DIN) and a time stamp (time)</p>
+<p>ll sourses are numbered from zero.
+Din 0 … 9</p>
+<p class="rubric">Example</p>
+<p>bits.pollStatus()
+res=bits.getAnalog()
+print(res[‘DIN’])</p>
+<p>will poll the status display the value of the  digital inputs
+in the first status entry returned.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also DBits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.getDigitalWord">
+<span class="sig-name descname"><span class="pre">getDigitalWord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.getDigitalWord"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.getDigitalWord" title="Link to this definition">¶</a></dt>
+<dd><p>Pulls out the values of the digital inputs for
+the Nth status entry.</p>
+<p>Returns a dictionary with a 10 bit word representing the binary
+values of those inputs (DWORD) and a time stamp (time).</p>
+<p class="rubric">Example</p>
+<p>bits.pollStatus()
+res=bits.getAnalog()
+print(res[‘DWORD’])</p>
+<p>will poll the status display the value of the digital inputs
+as a decimal number.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.getIRBox">
+<span class="sig-name descname"><span class="pre">getIRBox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.getIRBox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.getIRBox" title="Link to this definition">¶</a></dt>
+<dd><p>Pulls out the values of the CB6 IR response box inputs for
+the Nth status entry.</p>
+<p>Returns a dictionary with a list of 6 ints that are
+1 or 0 (IRBox) and a time stamp (time).</p>
+<p>ll sourses are numbered from zero.
+IR 0 … 5</p>
+<p class="rubric">Example</p>
+<p>bits.pollStatus()
+res=bits.getAnalog()
+print(res.[‘IRBox’])</p>
+<p>will poll the status display the values of the  IR box buttons
+in the first status entry returned.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.getInfo">
+<span class="sig-name descname"><span class="pre">getInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.getInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.getInfo" title="Link to this definition">¶</a></dt>
+<dd><p>Returns a python dictionary of info about the Bits Sharp box</p>
+<dl class="simple">
+<dt>Example::</dt><dd><p>info=bits.getInfo
+print(info[‘ProductType’])</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.getRTBoxResponse">
+<span class="sig-name descname"><span class="pre">getRTBoxResponse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.getRTBoxResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.getRTBoxResponse" title="Link to this definition">¶</a></dt>
+<dd><p>checks for one RTBox style key presses on the input
+buffer then reads it.
+Returns a dict like object with three members
+‘button’, ‘dir’ and ‘time’</p>
+<p>‘button’ is a number from 1 to 9 to indicate the event that
+was detected.
+1-4 are the ‘btn1-btn4’ events, 5 and 6 are the
+‘light’ and ‘pulse’ events,
+7 is the ‘trigger’ event,
+9 is a requested timestamp event (see Clock()).</p>
+<p>‘dir’ is the direction of the event eg ‘up’ or ‘down’,
+trigger is described as ‘on’ when low.</p>
+<p>‘dir’ is set to ‘time’ if a requested
+timestamp event has been detected.</p>
+<p>‘time’ is the timestamp associated with the event.</p>
+<dl class="simple">
+<dt>Value can be read as a structure, eg:</dt><dd><p>res= getRTBoxResponse()
+res.dir, res.button, res.time</p>
+</dd>
+<dt>or dictionary</dt><dd><p>res[‘dir’], res[‘button’], res[‘time’]</p>
+</dd>
+</dl>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. Such variations may affect key mappings for RTBox
+commands.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.getRTBoxResponses">
+<span class="sig-name descname"><span class="pre">getRTBoxResponses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.getRTBoxResponses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.getRTBoxResponses" title="Link to this definition">¶</a></dt>
+<dd><p>checks for (at least) an appropriate number of
+RTBox style key presses on the input buffer then reads them.
+Returns a list of dict like objects with three members
+‘button’, ‘dir’ and ‘time’</p>
+<p>‘button’ is a number from 1 to 9 to indicate the event that
+was detected.
+1-4 are the ‘btn1-btn4’ events, 5 and 6 are the
+‘light’ and ‘pulse’ events,
+7 is the ‘trigger’ event,
+9 is a requested timestamp event (see Clock()).</p>
+<p>‘dir’ is the direction of the event eg ‘up’ or ‘down’,
+trigger is described as ‘on’ when low.</p>
+<p>‘dir’ is set to ‘time’ if a requested
+timestamp event has been detected.</p>
+<p>‘time’ is the timestamp associated with the event.</p>
+<p>Values can be read as a list of structures eg:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">getRTBoxResponses</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dir</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">button</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span>
+</pre></div>
+</div>
+<p>or dictionaries:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;dir&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;button&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Note even if only 1 key press was requested
+a list of dict / objects is returned.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. Such variations may affect key mappings for RTBox
+commands.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.getStatus">
+<span class="sig-name descname"><span class="pre">getStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.getStatus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.getStatus" title="Link to this definition">¶</a></dt>
+<dd><p>Pulls out the Nth entry in the statusValues list.</p>
+<p>Returns a dict like object with the following entries
+sample, time, trigIn, DIN[10], DWORD, IR[6], ADC[6]</p>
+<p>sample is the sample ID number.
+time is the time stamp.
+trigIn is the value of the trigger input.
+DIN is a list of 10 digital input values.
+DWORD represents the digital inputs as a single decimal value.
+IR is a list of 10 infra-red (IR) input values.
+ADC is a list of 6 analog input values.
+These can be accessed as value[‘sample’]
+or value.sample, values.ADC[j].</p>
+<p>All sourses are numbered from zero.
+Din 0 … 9
+IR 0 … 5
+ADC 0 … 5</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">startStatusLog</span><span class="p">()</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">event</span>
+    <span class="c1">#do some processing</span>
+    <span class="k">continue</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">stopStatusLog</span><span class="p">()</span>
+<span class="n">res</span><span class="o">=</span><span class="n">getStatus</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bits</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.getStatusBoxResponse">
+<span class="sig-name descname"><span class="pre">getStatusBoxResponse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.getStatusBoxResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.getStatusBoxResponse" title="Link to this definition">¶</a></dt>
+<dd><p>checks for one statusBox style key presses on the input
+buffer then reads it.
+Returns a dict like object with three members
+‘button’, ‘dir’ and ‘time’</p>
+<p>‘button’ is a number from 1 to 9 to indicate the event that
+was detected.
+1-17 are the ‘btn1-btn17’ events.</p>
+<p>‘dir’ is the direction of the event eg ‘up’ or ‘down’,
+trigger is described as ‘on’ when low.</p>
+<p>‘dir’ is set to ‘time’ if a requested
+timestamp event has been detected.</p>
+<p>‘time’ is the timestamp associated with the event.</p>
+<dl class="simple">
+<dt>Value can be read as a structure, eg:</dt><dd><p>res= getRTBoxResponse()
+res.dir, res.button, res.time</p>
+</dd>
+<dt>or dictionary</dt><dd><p>res[‘dir’], res[‘button’], res[‘time’]</p>
+</dd>
+</dl>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.getStatusBoxResponses">
+<span class="sig-name descname"><span class="pre">getStatusBoxResponses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.getStatusBoxResponses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.getStatusBoxResponses" title="Link to this definition">¶</a></dt>
+<dd><p>checks for (at least) an appropriate number of
+RTBox style key presses on the input buffer then reads them.
+Returns a list of dict like objects with three members
+‘button’, ‘dir’ and ‘time’</p>
+<p>‘button’ is a number from 1 to 9 to indicate the event that
+was detected.
+1-4 are the ‘btn1-btn4’ events, 5 and 6 are the
+‘light’ and ‘pulse’ events,
+7 is the ‘trigger’ event,
+9 is a requested timestamp event (see Clock()).</p>
+<p>‘dir’ is the direction of the event eg ‘up’ or ‘down’,
+trigger is described as ‘on’ when low.</p>
+<p>‘dir’ is set to ‘time’ if a requested
+timestamp event has been detected.</p>
+<p>‘time’ is the timestamp associated with the event.</p>
+<p>Values can be read as a list of structures eg:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">getRTBoxResponses</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dir</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">button</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or dictionaries:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;dir&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;button&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;time&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Note even if only 1 key press was requested
+a list of dict / objects is returned.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.getStatusEvent">
+<span class="sig-name descname"><span class="pre">getStatusEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.getStatusEvent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.getStatusEvent" title="Link to this definition">¶</a></dt>
+<dd><p>pulls out the Nth event from the status event list</p>
+<p>Returns a dictionary like object with the following entries
+source, input, direction, time.</p>
+<p>source = the general source of the event - e.g.
+DIN for Digital input,
+IR for IT response box.</p>
+<p>input = the individual input in the source.
+direction = ‘up’ or ‘down’
+time = time stamp.</p>
+<p>All sourses are numbered from zero.
+Din 0 … 9
+IR 0 … 5
+ADC 0 … 5</p>
+<p>mode specifies which directions of events are captured,
+e.g ‘up’ will only report up events.</p>
+<p>The data can be accessed as value[‘time’] or value.time</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">startStatusLog</span><span class="p">()</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">event</span>
+    <span class="c1">#do some processing</span>
+    <span class="k">continue</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">stopStatusLog</span><span class="p">()</span>
+<span class="n">res</span><span class="o">=</span><span class="n">getAllStatusEvents</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bits</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.getTrigIn">
+<span class="sig-name descname"><span class="pre">getTrigIn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.getTrigIn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.getTrigIn" title="Link to this definition">¶</a></dt>
+<dd><p>Pulls out the values of the trigger input for the
+Nth status entry.</p>
+<p>Returns dictionary with a 0 or 1 (trigIn) and a time stamp (time)</p>
+<p class="rubric">Example</p>
+<p>bits.pollStatus()
+res=bits.getAnalog()
+print(res[‘trigIn’])</p>
+<p>will poll the status display the value of the trigger input.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.getVideoLine">
+<span class="sig-name descname"><span class="pre">getVideoLine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lineN</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nPixels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nAttempts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.getVideoLine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.getVideoLine" title="Link to this definition">¶</a></dt>
+<dd><p>Return the r,g,b values for a number of pixels on a particular
+video line</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lineN</strong> – the line number you want to read</p></li>
+<li><p><strong>nPixels</strong> – the number of pixels you want to read</p></li>
+<li><p><strong>nAttempts</strong> – the first time you call this function it has
+to get to status mode. In this case it sometimes takes a few
+attempts to make the call work</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>an Nx3 numpy array of uint8 values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.isAwake">
+<span class="sig-name descname"><span class="pre">isAwake</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.isAwake"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.isAwake" title="Link to this definition">¶</a></dt>
+<dd><p>Test whether we have an active connection on the virtual serial
+port</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.mode">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mode</span></span><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.mode" title="Link to this definition">¶</a></dt>
+<dd><p>Get/set the mode of the BitsSharp to one of:
+“bits++”
+“mono++”
+“color++”
+“status”
+“storage”
+“auto”</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.monitorEDID">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">monitorEDID</span></span><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.monitorEDID" title="Link to this definition">¶</a></dt>
+<dd><p>Get / set the EDID file for the monitor.
+The edid files will be located in the EDID subdirectory of the
+flash disk. The file <cite>automatic.edid</cite> will be the file read from
+the connected monitor.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.pollStatus">
+<span class="sig-name descname"><span class="pre">pollStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.pollStatus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.pollStatus" title="Link to this definition">¶</a></dt>
+<dd><p>Reads the status reports from the Bits# for the specified
+usually short time period t. The script will wait for this time
+to lapse so not ideal for  time critical applications.</p>
+<p>If t is less than 0.01 polling will continue until at least 1
+data entry has been recorded.</p>
+<p>If you don’t want to wait while this does its job
+use startStatusLog and stopStatusLog instead.</p>
+<p>Fills the statusValues list with all the status values
+read during the time period.</p>
+<p>Fills the statusEvents list with just those status values
+that are likely to be meaningful events.</p>
+<p>the members statusValues and statusEvents will end up containing
+dict like objects of the following style:
+sample, time, trigIn, DIN[10], DWORD, IR[6], ADC[6]</p>
+<p>They can be accessed as statusValues[i][‘sample’] or
+stautsValues[i].sample, statusValues[x].ADC[j].</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">pollStatus</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bits</span><span class="o">.</span><span class="n">statusValues</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">IR</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>will display the value of the IR InputA in the first sample recorded.</p>
+<p>Note: Starts and stops logging for itself.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.read" title="Link to this definition">¶</a></dt>
+<dd><p>Get the current waiting characters from the serial port
+if there are any.</p>
+<p>Mostly used internally but may be needed by user. Note the
+return message depends on what state the device is in and will
+need to be decoded. See the Bits# manual but also the other functions
+herein that do the decoding for you.</p>
+<p class="rubric">Example</p>
+<p>message = bits.read()</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.sendAnalog">
+<span class="sig-name descname"><span class="pre">sendAnalog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">AOUT1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AOUT2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.sendAnalog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.sendAnalog" title="Link to this definition">¶</a></dt>
+<dd><p>sends a single analog output pulse uses up 1 win flip.
+pulse will continue until next win flip called.
+Actions are always 1 frame behind the request.</p>
+<p>May conflict with trigger and goggle settings.</p>
+<p class="rubric">Example</p>
+<p>bits.sendAnalog(4.5,-2.0)
+bits.win.flip()</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.setAnalog">
+<span class="sig-name descname"><span class="pre">setAnalog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">AOUT1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AOUT2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.setAnalog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.setAnalog" title="Link to this definition">¶</a></dt>
+<dd><p>Sets up Analog outputs in Bits#
+AOUT1 and AOUT2 are the two analog values required in volts.
+Analog commands are issued at the next win.flip() and
+actioned 1 video frame later.</p>
+<p class="rubric">Example</p>
+<p>bits.set Analog(4.5,-2.2)
+bits.startAnalog()
+bits.win.flip()</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.setLUT">
+<span class="sig-name descname"><span class="pre">setLUT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newLUT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gammaCorrect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">LUTrange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.setLUT"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.setLUT" title="Link to this definition">¶</a></dt>
+<dd><p>SetLUT is only really needed for bits++ mode of bits# to set the
+look-up table (256 values with 14bits each).
+For the BitsPlusPlus device the default is to perform gamma
+correction here but on the BitsSharp it seems better to have the
+device perform that itself as the last step so gamma correction is
+off here by default.
+If no contrast has yet been set (it isn’t needed for other modes)
+then it will be set to 1 here.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.setRTBoxMode">
+<span class="sig-name descname"><span class="pre">setRTBoxMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['CB6',</span> <span class="pre">'Down',</span> <span class="pre">'Trigger']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.setRTBoxMode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.setRTBoxMode" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the RTBox mode data member - does not
+actually set the RTBox into this mode.</p>
+<p class="rubric">Example</p>
+<p>bits.setRTBoxMode([‘CB6’,’Down’]) # set the mode
+bits.RTBoxEnable() # Enable RTBox emulation with
+# the preset mode.</p>
+<p>sets the RTBox mode settings for a CRS CB6 button box.
+and for detection of ‘Down’ events only.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.setStatusBoxMode">
+<span class="sig-name descname"><span class="pre">setStatusBoxMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['CB6',</span> <span class="pre">'Down',</span> <span class="pre">'Trigger',</span> <span class="pre">'Analog']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.setStatusBoxMode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.setStatusBoxMode" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the statusBox mode data member - does not
+actually set the statusBox into this mode.</p>
+<p class="rubric">Example</p>
+<p>bits.setStatusBoxMode([‘CB6’,’Down’]) # set the mode
+bits.statusBoxEnable() # Enable status Box emulation with
+# the preset mode.</p>
+<p>sets the statusBox mode settings for a CRS CB6 button box.
+and for detection of ‘Down’ events only.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.setStatusBoxThreshold">
+<span class="sig-name descname"><span class="pre">setStatusBoxThreshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.setStatusBoxThreshold"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.setStatusBoxThreshold" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the threshold by which analog inputs must change to trigger a button
+press event. If None the threshold will be set very high so that no such events are
+triggered.</p>
+<p>Can be used to change the threshold for analog events without having to re enable the
+status box system as a whole.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.setStatusEventParams">
+<span class="sig-name descname"><span class="pre">setStatusEventParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DINBase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1023</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">IRBase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">63</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TrigInBase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ADCBase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9999.99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['up',</span> <span class="pre">'down']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.setStatusEventParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.setStatusEventParams" title="Link to this definition">¶</a></dt>
+<dd><p>Sets the parameters used to determine if a status value represents
+a reportable event.</p>
+<p>DIN_base = a 10 bit binary word specifying the expected starting
+values of the 10 digital input lines</p>
+<p>IR_base = a 6 bit binary word specifying the expected starting
+values of the 6 CB6 IR buttons</p>
+<p>Trig_base = the starting value of the Trigger input</p>
+<p>mode = a list of event types to monitor can be ‘up’ or  ‘down’
+typically ‘down’ corresponds to a button press or when the input
+is being pulled down to zero volts.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">setStatusEventParams</span><span class="p">(</span><span class="n">DINBase</span><span class="o">=</span><span class="mb">0b1111111111</span><span class="p">,</span>
+                          <span class="n">IRBase</span><span class="o">=</span><span class="mb">0b111111</span><span class="p">,</span>
+                          <span class="n">TrigInBase</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                          <span class="n">ADCBase</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                          <span class="n">threshold</span> <span class="o">=</span> <span class="mf">3.4</span><span class="p">,</span>
+                          <span class="n">mode</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;down&#39;</span><span class="p">])</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">startStatusLog</span><span class="p">()</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">event</span>
+    <span class="c1">#do some processing</span>
+    <span class="k">continue</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">stopStatusLog</span><span class="p">()</span>
+<span class="n">res</span><span class="o">=</span><span class="n">getAllStatusEvents</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bits</span><span class="o">.</span><span class="n">res</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This ill start the event extraction process as if DINs and IRs are all ‘1’, Trigger is ‘0’
+ADCs = 0 with an ADC threshold for change of 3.4 volts,
+and will only register ‘down’ events. Here we display the time stamp of the first event.</p>
+<p>Note that the firmware in Display++ units varies over time and some
+features of this class may not work for all firmware versions.
+Also Display++ units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.setTrigger">
+<span class="sig-name descname"><span class="pre">setTrigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triggers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">onTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">65535</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.setTrigger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.setTrigger" title="Link to this definition">¶</a></dt>
+<dd><p>Quick way to set up triggers.</p>
+<p>Triggers is a binary word that determines which
+triggers will be turned on.</p>
+<p>onTime specifies the start time of the trigger within
+the frame (in S with 100uS resolution)</p>
+<p>Duration specifies how long the trigger will last.
+(in S with 100uS resolution).</p>
+<p>Note that mask only protects the digital output lines
+set by other activities in the Bits. Not other triggers.</p>
+<p>Example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">bits.setTrigger(0b0000000010,</span> <span class="pre">2.0,</span> <span class="pre">4.0,</span> <span class="pre">0b0111111111)</span>
+<span class="pre">bits.startTrigger()</span>
+<span class="pre">`</span></code></p>
+<p>Will issue a 4ms long high-going pulse, 2ms after the start
+of each frame on DOUT1 while protecting the value of DOUT 9.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.setTriggerList">
+<span class="sig-name descname"><span class="pre">setTriggerList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">triggerList</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">65535</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.setTriggerList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.setTriggerList" title="Link to this definition">¶</a></dt>
+<dd><p>Overaload of Bits# and Display++
+Sets up Trigger pulses via the list method
+while preserving the analog output settings.</p>
+<p>Sets up Trigger pulses in Bist++ using the fine grained
+method that can control every trigger line at 100uS
+intervals.</p>
+<p>TriggerList should contain 1 entry for every 100uS
+packet (see getPackets) the binary word in each entry
+specifies which trigger line will be active during that
+time slot.</p>
+<p>Note that mask only protects the digital output lines
+set by other activities in the Bits. Not other triggers.</p>
+<p class="rubric">Example</p>
+<p>packet = [0]*self._NumberPackets
+packet[0] = 0b0000000010
+bits.setTriggerList(packet)</p>
+<p>Will sens a 100us pulse on DOUT1 at the start of the frame.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>Example 2:</dt><dd><p>packet = [0]*self._NumberPackets
+packet[10] = 0b0000000010
+packet[20] = 0b0000000001
+bits.setTriggerList(packet)
+bits.statrtTrigger()</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Will sens a 100us pulse on DOUT1 1000us after the start of the
+frame and a second 100us pusle on DOUT0 2000us after the start of
+the frame.</p>
+<p>Triggers will continue until stopTrigger is called.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.start" title="Link to this definition">¶</a></dt>
+<dd><p>[Not currently implemented] Used to begin event collection by
+the device.</p>
+<p>Not really needed as other members now do this.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.startAnalog">
+<span class="sig-name descname"><span class="pre">startAnalog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.startAnalog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.startAnalog" title="Link to this definition">¶</a></dt>
+<dd><p>will start sending analog signals on the
+next win flip and continue until stopped.</p>
+<p class="rubric">Example</p>
+<p>bits.set Analog(4.5,-2.2)
+bits.startAnalog()
+bits.win.flip()</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.startStatusLog">
+<span class="sig-name descname"><span class="pre">startStatusLog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.startStatusLog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.startStatusLog" title="Link to this definition">¶</a></dt>
+<dd><p>Start logging data from the Bits#</p>
+<blockquote>
+<div><p>Starts data logging in its own thread.</p>
+<p>Will run for t seconds, defrault 60 or until
+stopStatusLog() is called.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">startStatusLog</span><span class="p">()</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">event</span>
+    <span class="c1">#do some processing</span>
+    <span class="k">continue</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">stopStatusLog</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.statusBoxAddKeys">
+<span class="sig-name descname"><span class="pre">statusBoxAddKeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.statusBoxAddKeys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.statusBoxAddKeys" title="Link to this definition">¶</a></dt>
+<dd><p>Add key mappings to an existing map.
+statusBox events can be mapped to a number of physical events on Bits#
+They can be mapped to digital input lines, triggers and CB6 IR input channels.
+The format for map is a list of tuples with each tuple containing the name of the
+RTBox button to be mapped and its source eg (‘btn1’,’Din1’) maps physical input Din1 to
+logical button btn1.
+statusBox has 23 logical buttons (btn1-23).
+Unlike RTBox buttons/events can only be partially mapped to multiple physical inputs.
+That is a logical button can be mapped to more than 1 physical input but a physical input
+can onloy be mapped to 1 logical button.
+So, this function over write any existing mappings if the physical input is the
+same.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">RTBoxSetKeys</span><span class="p">([(</span><span class="s1">&#39;btn1&#39;</span><span class="p">,</span><span class="s1">&#39;Din0),(&#39;</span><span class="n">btn2</span><span class="s1">&#39;,&#39;</span><span class="n">Din1</span><span class="s1">&#39;)])</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">RTBoxAddKeys</span><span class="p">([(</span><span class="s1">&#39;btn1&#39;</span><span class="p">,</span><span class="s1">&#39;IRButtonA&#39;</span><span class="p">),((</span><span class="s1">&#39;btn2&#39;</span><span class="p">,</span><span class="s1">&#39;IRButtonB&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>Will link Din0 to button 1 and Din1 to button 2.
+Then adds IRButtonA and IRButtonB alongside the original mappings.</p>
+<p>Now both hard wired and IR inputs will emulate the same logical button press.</p>
+<p>To match with the CRS hardware description inputs are labelled as follows.</p>
+<p>TrigIn, Din0 … Din9, IRButtonA … IRButtonF, AnalogIn1 … AnalogIn6</p>
+<p>Logical buttons are numbered from 1 to 23.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.statusBoxDisable">
+<span class="sig-name descname"><span class="pre">statusBoxDisable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.statusBoxDisable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.statusBoxDisable" title="Link to this definition">¶</a></dt>
+<dd><p>Disables the detection of statusBox events.
+This is useful to stop the Bits# from reporting key presses
+When you no longer need them. And must be done before using any
+other data logging methods.</p>
+<p>It undoes any button - input mappings</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.statusBoxEnable">
+<span class="sig-name descname"><span class="pre">statusBoxEnable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.statusBoxEnable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.statusBoxEnable" title="Link to this definition">¶</a></dt>
+<dd><p>Sets up the stautsBox with preset or bespoke mappings
+and enables event detection.</p>
+<p>stautsBox events can be mapped to a number of physical events on Bits#
+They can be mapped to digital input lines, tigers and
+CB6 IR input channels.</p>
+<p>mode is a list of strings.
+Preset mappings provided via mode:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>CB6 for the CRS CB6 IR response box connected mapped to btn1-6</p></li>
+<li><p>IO for a three button box connected to Din0-2 mapped to btn1-3</p></li>
+<li><p>IO6 for a six button box connected to Din0-5 mapped to btn1-6</p></li>
+<li><p>IO10 for a ten button box connected to Din0-9 mapped to btn1-10</p></li>
+<li><p>Trigger maps the trigIn to btn17</p></li>
+<li><p>Analog maps the 6 analog inputs on a Bits# to btn18-23</p></li>
+</ul>
+</div></blockquote>
+<p>If CB6 and IOx are used together the Dins are mapped from btn7 onwards.</p>
+<p>If mode = None or is not set then the value of self.statusBoxMode is used.</p>
+<p>Bespoke Mappings overwrite preset ones.</p>
+<p>The format for map is a list of tuples with each tuple
+containing the name of the
+button to be mapped and its source
+eg (‘btn1’,’Din0’) maps physical input Din0 to
+logical button btn1.</p>
+<p>Note the lowest number button event is Btn1</p>
+<p>statusBox has 23 logical buttons (btn1-123).
+Buttons/events can be mapped to multiple physical
+inputs and stay mapped until reset.</p>
+<p>mode is a string or list of strings that contains
+keywords to determine present mappings and modes for statusBox.</p>
+<p>If mode includes ‘Down’ button events will be
+detected when pressed.
+If mode includes ‘Up’ button events will be
+detected when released.
+You can detect both types of event noting that the event detector
+will look for transitions and ignorewhat it sees as the starting state.</p>
+<p>To match with the CRS hardware description inputs are labelled as follows.</p>
+<p>TrigIn, Din0 … Din9, IRButtonA … IRButtonF, AnalogIn1 … AnalogIn6</p>
+<p>Logical buttons are numbered from 1 to 23.</p>
+<p>threshold sets the threshold by which analog inputs must change to trigger a button
+press event. If None the threshold will be set very high so that no such events are
+triggered. Analog inputs must cycle up and down by threshold to be detected as separate
+events. So if only ‘Up’ events are detected the input must go up by threshold, then come
+down again and then go back up to register 2 up events.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">statusBoxEnable</span><span class="p">(</span><span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;Down&#39;</span><span class="p">),</span> <span class="nb">map</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;btn1&#39;</span><span class="p">,</span><span class="s1">&#39;Din0&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;btn2&#39;</span><span class="p">,</span><span class="s1">&#39;Din1&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>enables the stautsBox to detect Down events on buttons 1 and 2 where they are
+mapped to DIN0 and DIN1.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">statusBoxEnable</span><span class="p">(</span><span class="n">mode</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Down&#39;</span><span class="p">,</span><span class="s1">&#39;CB6&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>enables the status Box emulation to detect Down events on the standard CB6 IR response box keys.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.statusBoxKeysPressed">
+<span class="sig-name descname"><span class="pre">statusBoxKeysPressed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.statusBoxKeysPressed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.statusBoxKeysPressed" title="Link to this definition">¶</a></dt>
+<dd><p>Check to see if (at least) the appropriate number
+of RTBox style key presses have been made.</p>
+<p class="rubric">Example</p>
+<p>bits.statusBoxKeysPressed(5)</p>
+<p>will return false until 5 button presses have been recorded.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.statusBoxSetKeys">
+<span class="sig-name descname"><span class="pre">statusBoxSetKeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.statusBoxSetKeys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.statusBoxSetKeys" title="Link to this definition">¶</a></dt>
+<dd><p>Set key mappings: first resets existing then adds new ones.
+Does not reset any event that is not in the new list.
+statusBox events can be mapped to a number of physical events on Bits#
+They can be mapped to digital input lines, triggers and CB6 IR input channels.
+The format for map is a list of tuples with each tuple containing the name of the
+RTBox button to be mapped and its source eg (‘btn1’,’Din1’) maps physical input Din1 to
+logical button btn1.</p>
+<p>statusBox has 17 logical buttons (btn1-17)
+Buttons/events can be mapped to multiple physical inputs and stay mapped until reset.</p>
+<p class="rubric">Example</p>
+<p>bits.RTBoxSetKeys([(‘btn1’,’Din0),(‘btn2’,’IRButtonA’)])</p>
+<p>Will link physical Din0 to logical button 1 and IRButtonA to button 2.</p>
+<p>To match with the CRS hardware description inputs are labelled as follows.</p>
+<p>TrigIn, Din0 … Din9, IRButtonA … IRButtonF, AnalogIn1 … AnalogIn6</p>
+<p>Logical buttons are numbered from 1 to 23.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.statusBoxWait">
+<span class="sig-name descname"><span class="pre">statusBoxWait</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.statusBoxWait"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.statusBoxWait" title="Link to this definition">¶</a></dt>
+<dd><p>Waits until (at least) one
+of RTBox style key presses have been made
+Pauses program execution in mean time.</p>
+<p class="rubric">Example</p>
+<p>res = bits.statusBoxWait()</p>
+<p>will suspend all other activity until 1 button press has been
+recorded and will then return a dict / structure containing results.</p>
+<p>Results can be accessed as follows:</p>
+<dl class="simple">
+<dt>structure</dt><dd><p>res.dir, res.button, res.time</p>
+</dd>
+<dt>or dictionary</dt><dd><p>res[‘dir’], res[‘button’], res[‘time’]</p>
+</dd>
+</dl>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also DBits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.statusBoxWaitN">
+<span class="sig-name descname"><span class="pre">statusBoxWaitN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.statusBoxWaitN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.statusBoxWaitN" title="Link to this definition">¶</a></dt>
+<dd><p>Waits until (at least) the appropriate number
+of RTBox style key presses have been made
+Pauses program execution in mean time.</p>
+<p class="rubric">Example</p>
+<p>res = bits.statusBoxWaitN(5)</p>
+<p>will suspend all other activity until 5 button presses have been
+recorded and will then return a list of Dicts containing the 5 results.</p>
+<p>Results can be accessed as follows:</p>
+<p>structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dir</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">button</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span>
+</pre></div>
+</div>
+<p>or dictionary:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;dir&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;button&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.stop" title="Link to this definition">¶</a></dt>
+<dd><p>[Not currently implemented] Used to stop event collection by
+the device.</p>
+<p>Not really needed as other members now do this.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.stopAnalog">
+<span class="sig-name descname"><span class="pre">stopAnalog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.stopAnalog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.stopAnalog" title="Link to this definition">¶</a></dt>
+<dd><p>will stop sending analogs signals at the next win flip.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">set</span> <span class="n">Analog</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span><span class="o">-</span><span class="mf">2.2</span><span class="p">)</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">startAnalog</span><span class="p">()</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">response</span><span class="p">:</span>
+    <span class="c1">#do some processing.</span>
+    <span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">stopAnalog</span><span class="p">()</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.stopGoggles">
+<span class="sig-name descname"><span class="pre">stopGoggles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.stopGoggles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.stopGoggles" title="Link to this definition">¶</a></dt>
+<dd><p>Stop the stereo goggles from toggling</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">startGoggles</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">response</span>
+    <span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+    <span class="c1">#do some processing</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">stopGoggles</span><span class="p">()</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Starts toggling the goggles with the right eye open in sync with the
+first win.flip(0) within the loop. The open eye will alternate.</p>
+<p>Note it is safer to leave the goggles toggling forever, ie to never call stopGoggles().</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.stopStatusLog">
+<span class="sig-name descname"><span class="pre">stopStatusLog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.stopStatusLog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.stopStatusLog" title="Link to this definition">¶</a></dt>
+<dd><dl>
+<dt>Stop logging data from the Bits#</dt><dd><p>and extracts the raw status values and significant events and puts them
+in statusValues and statusEvents.</p>
+<p>statusValues will end up containing
+dict like objects of the following style: <cite>sample, time, trigIn, DIN[10], DWORD, IR[6], ADC[6]</cite></p>
+<p>They can be accessed as statusValues[i][‘sample’] or
+statusValues[i].sample, statusValues[x].ADC[j].</p>
+<p>StatusEvents will end up containing dict like objects of
+the following style: <cite>source, input, direction, time</cite></p>
+<p>The data can be accessed as statusEvents[i][‘time’] or statusEvents[i].time</p>
+<p>Waits for _statusLog to finish properly
+so can introduce a timing delay.</p>
+</dd>
+</dl>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">startStatusLog</span><span class="p">()</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">event</span>
+    <span class="c1">#do some processing</span>
+    <span class="k">continue</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">stopStatusLog</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bits</span><span class="o">.</span><span class="n">statusValues</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bits</span><span class="o">.</span><span class="n">statusEvents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Will display the time stamps of the first starus value recorded and the first
+meaningful event.</p>
+<p>Note that the firmware in Bits# units varies over time and some
+features of this class may not work for all firmware versions.
+Also Bits# units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.stopTrigger">
+<span class="sig-name descname"><span class="pre">stopTrigger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#BitsSharp.stopTrigger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.stopTrigger" title="Link to this definition">¶</a></dt>
+<dd><p>Stop sending triggers at the next win flip.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bits</span><span class="o">.</span><span class="n">setTrigger</span><span class="p">(</span><span class="mb">0b0000000010</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mb">0b0111111111</span><span class="p">)</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">startTrigger</span><span class="p">()</span>
+<span class="k">while</span> <span class="n">imageOn</span><span class="p">:</span>
+    <span class="c1">#do some processing</span>
+    <span class="k">continue</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">stopTrigger</span><span class="p">()</span>
+<span class="n">bits</span><span class="o">.</span><span class="n">win</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.temporalDithering">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">temporalDithering</span></span><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.temporalDithering" title="Link to this definition">¶</a></dt>
+<dd><p>Temporal dithering can be set to True or False</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psychopy_crs.bits.BitsSharp.win">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">win</span></span><a class="headerlink" href="#psychopy_crs.bits.BitsSharp.win" title="Link to this definition">¶</a></dt>
+<dd><p>The window that this box is attached to</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.bits.</span></span><span class="sig-name descname"><span class="pre">DisplayPlusPlus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlus" title="Link to this definition">¶</a></dt>
+<dd><p>A Display++ is Bits# box inside and LCD monitor so this class
+is just a wrapper that reminds people with a Display++ that
+they are using it. However unlike the Bits# you may not
+have any analog connections on a Display++ unless you
+purchased that option.</p>
+<p>Everything in the Bits# class should work but any
+analog values sent or read will be spurious unless you
+have the analog hardware installed.</p>
+<blockquote>
+<div><p>Note that the firmware in Display++ units varies over time and some
+features of this class may not work for all firmware versions.
+Also Display++ units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particualar it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+<p>RTBox commands that reset the key mapping have been found not to work
+one some firmware.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlusTouch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.bits.</span></span><span class="sig-name descname"><span class="pre">DisplayPlusPlusTouch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlusTouch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlusTouch" title="Link to this definition">¶</a></dt>
+<dd><p>A Display++ is Bits# box inside and LCD monitor but its
+also possible to add a touch screen option to Display++
+and this class will give access to that.</p>
+<p>Otherwise this class is just a wrapper to the Bits# class.
+However unlike the Bits# you may not have any analog
+connections on a Display++ unless you purchased that option.</p>
+<p>Everything in the Bits# class should work but any
+analog values sent or read will be spurious unless you
+have the analog hardware installed.</p>
+<blockquote>
+<div><p>Note that the firmware in Display++ units varies over time and some
+features of this class may not work for all firmware versions.
+Also Display++ units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+<p>RTBox commands that reset the key mapping have been found not to work
+one some firmware.</p>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlusTouch.RTBoxEnable">
+<span class="sig-name descname"><span class="pre">RTBoxEnable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('CB6',</span> <span class="pre">'Down',</span> <span class="pre">'Trigger')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlusTouch.RTBoxEnable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlusTouch.RTBoxEnable" title="Link to this definition">¶</a></dt>
+<dd><p>Overaload RTBoxEnable for Display++ with touch screen.
+Sets up the RTBox with preset or bespoke mappings
+and enables event detection.</p>
+<p>RTBox events can be mapped to a number of physical events on Bits#
+They can be mapped to digital input lines, tigers and
+CB6 IR input channels.</p>
+<p>Mode is a list of strings.
+Preset mappings  provided via mode:</p>
+<blockquote>
+<div><p>CB6 for the CRS CB6 IR response box.
+IO for a three button box connected to Din0-2
+IO6 for a six button box connected to Din0-5</p>
+</div></blockquote>
+<p>If mode = None or is not set then the value of self.RTBoxMode is used.</p>
+<p>Bespoke Mappings over write preset ones.</p>
+<p>The format for map is a list of tuples with each tuple
+containing the name of the
+RT Box button to be mapped and its source
+eg (‘btn1’,’Din0’) maps physical input Din0 to
+logical button btn1.</p>
+<p>Note the lowest number button event is Btn1</p>
+<p>RTBox has four logical buttons (btn1-4) and
+three auxiliary events (light, pulse and trigger)
+Buttons/events can be mapped to multiple physical
+inputs and stay mapped until reset.</p>
+<p>Mode is a list of string or list of strings that contains
+keywords to determine present mappings and modes for RTBox.</p>
+<p>If mode includes ‘Down’ button events will be
+detected when pressed.
+If mode includes ‘Up’ button events will be
+detected when released.
+You can detect both types of event but note
+that pulse, light and trigger events
+dont have an ‘Up’ mode.</p>
+<dl class="simple">
+<dt>If Trigger is included in mode the trigger</dt><dd><p>event will be mapped to the trigIn connector.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>bits.RTBoxEnable(mode = ‘Down’), map = [(‘btn1’,’Din0’), (‘btn2’,’Din1’)]</p>
+<p>enable the RTBox emulation to detect Down events on buttons 1 and 2 where they are
+mapped to DIN0 and DIN1.</p>
+<p class="rubric">Example</p>
+<p>bits.RTBoxEnable(mode = [‘Down’,’CB6’])</p>
+<p>enable the RTBox emulation to detect Down events on the standard CB6 IR response box keys.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlusTouch.getAllTouchResponses">
+<span class="sig-name descname"><span class="pre">getAllTouchResponses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlusTouch.getAllTouchResponses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlusTouch.getAllTouchResponses" title="Link to this definition">¶</a></dt>
+<dd><p>get all the touch screen presses from the
+events on the input buffer then reads them.
+Returns a list of dict like objects with four members
+‘x’,’y’,’dir’ and ‘time’
+‘x and y’ are the x and y coordinates pressed.
+‘dir’ is the direction of the event</p>
+<blockquote>
+<div><p>eg ‘touched’ for presses and ‘relased’ for releases.</p>
+</div></blockquote>
+<p>‘time’ is the timestamp associated with the event.
+these values can be read as a structure:</p>
+<blockquote>
+<div><p>res=getAllTouchResponses()
+res[0].dir, res[0].x, rest[0].time</p>
+</div></blockquote>
+<dl class="simple">
+<dt>or dirctionary</dt><dd><p>res[0][‘dir’], res[0][‘x’], res[0][‘time’]</p>
+</dd>
+<dt>Note even if only 1 response is requested the result is</dt><dd><p>a 1 item long list of dict like objects.</p>
+</dd>
+<dt>Note in theory this could be used to get multiple responses</dt><dd><p>but in practice the touch screen reports every slight
+movement so the Logging methods are better.</p>
+</dd>
+<dt>Note this function does not start touch screen</dt><dd><p>recording so should only be called
+when there appears to be data waiting.
+So you need to call touchEnable() before and
+touchDisable after this function</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>bits.touchEnable()
+while not event:</p>
+<blockquote>
+<div><p># do some processing
+continue</p>
+</div></blockquote>
+<p>bits.touchDisable()
+res=getAllTouchResponses(3)
+print(res[0].time)</p>
+<p>Will put the touch screen into continuous reading while doing some task
+and at the end get all the tocuhes are display the timestamp of the first one.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlusTouch.getTouchEvent">
+<span class="sig-name descname"><span class="pre">getTouchEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlusTouch.getTouchEvent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlusTouch.getTouchEvent" title="Link to this definition">¶</a></dt>
+<dd><dl>
+<dt>Scans the touch log to return the Nth touch event.</dt><dd><blockquote>
+<div><p>You need to run getTouchLog before you run this function.</p>
+</div></blockquote>
+<dl>
+<dt>Returns as list of Dict like structures with members</dt><dd><p>time, x, y, and dir</p>
+<p>time is the time stamp of the event.
+x and y are the x and y locations of the event.
+direction is the type of event: ‘touched’, ‘released’</p>
+<p>These values can be read as a structure:
+res=getTouchResponses(3)
+res[0].dir, res[0].x, res[0].time
+or dictionary
+res[0][‘dir’], res[0][‘x’], res[0][‘time’]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>bits.startTouchLog()
+while not event:</p>
+<blockquote>
+<div><p>#do some processing
+continue</p>
+</div></blockquote>
+<p>bits.stopTouchLog()
+bits.getTouchLog()
+res=bits.getTouchEvent(N=10, distance=20, time=0.001, type=’touched’)
+print(res.time)</p>
+<p>Will extract the 10th touch events (ingnoreing releases) that are 20 pixels and 1 ms apart.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlusTouch.getTouchEvents">
+<span class="sig-name descname"><span class="pre">getTouchEvents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlusTouch.getTouchEvents"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlusTouch.getTouchEvents" title="Link to this definition">¶</a></dt>
+<dd><dl>
+<dt>Scans the touch log to extract touch events.</dt><dd><p>You need to run getTouchLog before you run this function.</p>
+<p>Returns as list of Dict like structures with members
+time, x, y, and dir</p>
+<p>time is the time stamp of the event.
+x and y are the x and y locations of the event.
+direction is the type of event: ‘touched’, ‘released’</p>
+<p>These values can be read as a structure:
+res=getTouchResponses(3)
+res[0].dir, res[0].x, res[0].time
+or dictionary
+res[0][‘dir’], res[0][‘x’], res[0][‘time’]</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>bits.startTouchLog()
+while not event:</p>
+<blockquote>
+<div><p>#do some processing
+continue</p>
+</div></blockquote>
+<p>bits.stopTouchLog()
+bits.getTouchLog()
+res=bits.getTouchEvents(distance=20, t=0.001, type=’touched’)
+print(res[0][‘time’]</p>
+<p>Will extract touch events (not releases) that are 20 pixels and 1 ms apart.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlusTouch.getTouchLog">
+<span class="sig-name descname"><span class="pre">getTouchLog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">caution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlusTouch.getTouchLog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlusTouch.getTouchLog" title="Link to this definition">¶</a></dt>
+<dd><p>Reads out the touch screen cue and checks for a known error
+Returns a list of dict like objects with four members
+‘x’,’y’,’dir’ and ‘time’
+‘x and y’ are the x and y coordinates pressed.
+‘dir’ is the direction of the event</p>
+<blockquote>
+<div><p>eg ‘touched’ for presses and ‘released’ for releases.</p>
+</div></blockquote>
+<p>‘time’ is the timestamp associated with the event.
+these values can be read as a structure:</p>
+<blockquote>
+<div><p>res=getTouchResponses(3)
+res[0].dir, res[0].x, res[0].time</p>
+</div></blockquote>
+<dl class="simple">
+<dt>or dictionary</dt><dd><p>res[0][‘dir’], res[0][‘x’], res[0][‘time’]</p>
+</dd>
+<dt>Note even if only 1 response is requested the result is</dt><dd><p>a 1 item long list of dict like objects.</p>
+</dd>
+<dt>Note in theory this could be used to get multiple responses</dt><dd><p>but in practice the touch screen reports every slight
+movements so the Logging methods, getTouchResponse
+or getAllTouchResponses are better.</p>
+</dd>
+<dt>Note this function does not start touch screen</dt><dd><p>recording so should only be called
+when there appears to be data waiting.
+So you need to call touchEnable() before and
+touchDisable after this function.</p>
+</dd>
+</dl>
+<p>checkTime specifies a time between the first and second touches
+after which a warning of a possible error will be issued and
+the error may be corrected.</p>
+<p>caution: If True tell the function to check for a known Display++ error
+if you don’t have that error or you don’t care about it you should set
+this to False.</p>
+<p class="rubric">Example</p>
+<p>bits.startTouchLog()
+while not event:</p>
+<blockquote>
+<div><p>#do some processing
+continue</p>
+</div></blockquote>
+<p>bits.stopTouchLog()
+res=bits.getTouchLog(caution = False)</p>
+<p>Will get all the screen touches without checking for errors.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlusTouch.getTouchResponse">
+<span class="sig-name descname"><span class="pre">getTouchResponse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlusTouch.getTouchResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlusTouch.getTouchResponse" title="Link to this definition">¶</a></dt>
+<dd><p>checks for (at least) one touch screen
+press on the input buffer then reads it.
+Returns a dict like object with four members
+‘x’,’y’,’dir’ and ‘time’
+‘x and y’ are the x and y coordinates pressed.
+‘dir’ is the direction of the event</p>
+<blockquote>
+<div><p>eg ‘touched’ for presses and ‘relased’ for releases.</p>
+</div></blockquote>
+<p>‘time’ is the timestamp associated with the event.
+these values can be read as a structure:</p>
+<blockquote>
+<div><p>res=getTouchGetResponse()
+res.dir, res.x, rest.time</p>
+</div></blockquote>
+<dl class="simple">
+<dt>or dirctionary</dt><dd><p>res[‘dir’], res[‘x’], res[‘time’]</p>
+</dd>
+<dt>Note this function does not start touch screen</dt><dd><p>recording so should only be called
+when there appears to be data waiting.
+So you need to call touchEnable() before and
+touchDisable after this function.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>bits.touchEnable()
+while not event:</p>
+<blockquote>
+<div><p># do some processing
+continue</p>
+</div></blockquote>
+<p>bits.touchDisable()
+res=getTouchResponse()
+print(res.time)</p>
+<p>Will put the touch screen into continuous reading while doing some task
+and at the end get all the tocuhes are display the timestamp of the first one.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlusTouch.getTouchResponses">
+<span class="sig-name descname"><span class="pre">getTouchResponses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlusTouch.getTouchResponses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlusTouch.getTouchResponses" title="Link to this definition">¶</a></dt>
+<dd><p>checks for (at least) an appropriate number of touch screen
+presses on the input buffer then reads them.
+Returns a list of dict like objects with four members
+‘x’,’y’,’dir’ and ‘time’
+‘x and y’ are the x and y coordinates pressed.
+‘dir’ is the direction of the event</p>
+<blockquote>
+<div><p>eg ‘touched’ for presses and ‘released’ for releases.</p>
+</div></blockquote>
+<p>‘time’ is the timestamp associated with the event.
+these values can be read as a structure:</p>
+<blockquote>
+<div><p>res=getTouchResponses(3)
+res[0].dir, res[0].x, res[0].time</p>
+</div></blockquote>
+<dl class="simple">
+<dt>or dictionary</dt><dd><p>res[0][‘dir’], res[0][‘x’], res[0][‘time’]</p>
+</dd>
+<dt>Note even if only 1 response is requested the result is</dt><dd><p>a 1 item long list of dict like objects.</p>
+</dd>
+<dt>Note in theory this could be used to get multiple responses</dt><dd><p>but in practice the touch screen reports every slight
+movements so the Logging methods, getTouchResponse
+or getAllTouchResponses are better.</p>
+</dd>
+<dt>Note this function does not start touch screen</dt><dd><p>recording so should only be called
+when there appears to be data waiting.
+So you need to call touchEnable() before and
+touchDisable after this function.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>bits.touchEnable()
+while not event:</p>
+<blockquote>
+<div><p># do some processing
+continue</p>
+</div></blockquote>
+<p>bits.touchDisable()
+res=getTouchResponses(3)
+print(res[0].time)</p>
+<p>Will put the touch screen into continuous reading while doing some task
+and at the end get the first 3 tocuhes are display the timestamp of the first one.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlusTouch.setTouchEventParams">
+<span class="sig-name descname"><span class="pre">setTouchEventParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlusTouch.setTouchEventParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlusTouch.setTouchEventParams" title="Link to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Sets the parameters for touch event detection.</dt><dd><p>Distance is how far the touch should move to count
+as a new touch.
+Time is how long should lapse between touches for the
+second one to count.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>bits.startTouchLog()
+while not event:</p>
+<blockquote>
+<div><p>#do some processing
+continue</p>
+</div></blockquote>
+<p>bits.stopTouchLog()
+res=bits.getTouchLog()
+bits.setTouchEventParams(distance=20, t=0.001, type=’touched’)
+events=bits.getTouchEvents()</p>
+<p>Will extract touch events (not releases) that are 20 pixels and 1 ms apart.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlusTouch.startTouchLog">
+<span class="sig-name descname"><span class="pre">startTouchLog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlusTouch.startTouchLog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlusTouch.startTouchLog" title="Link to this definition">¶</a></dt>
+<dd><p>Start logging data from the touch screen.
+Turns on the touch screen.</p>
+<p class="rubric">Example</p>
+<p>bits.startTouchLog()
+while not event:</p>
+<blockquote>
+<div><p>#do some processing
+continue</p>
+</div></blockquote>
+<p>bits.stopTouchLog()
+res=bits.getTouchLog()</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlusTouch.statusBoxEnable">
+<span class="sig-name descname"><span class="pre">statusBoxEnable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlusTouch.statusBoxEnable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlusTouch.statusBoxEnable" title="Link to this definition">¶</a></dt>
+<dd><p>Sets up the statusBox with preset or bespoke mappings
+and enables event detection.</p>
+<p>stautsBox events can be mapped to a number of physical events on Bits#
+They can be mapped to digital input lines, tigers and
+CB6 IR input channels.</p>
+<p>Mode is a list of strings.
+Preset mappings  provided via mode:</p>
+<blockquote>
+<div><p>CB6 for the CRS CB6 IR response box connected mapped to btn1-6
+IO for a three button box connected to Din0-2 mapped to btn1-3
+IO6 for a six button box connected to Din0-5 mapped to btn1-6
+IO10 for a ten button box connected to Din0-9 mapped to btn1-10
+Trigger maps the trigIn to btn17</p>
+<p>if CB6 and IOx are used the Dins are mapped from btn7 onwards.</p>
+</div></blockquote>
+<p>If mode = None or is not set then the value of self.statusBoxMode is used.</p>
+<p>Bespoke Mappings over write preset ones.</p>
+<p>The format for map is a list of tuples with each tuple
+containing the name of the</p>
+<blockquote>
+<div><p>button to be mapped and its source</p>
+</div></blockquote>
+<p>eg (‘btn1’,’Din0’) maps physical input Din0 to
+logical button btn1.</p>
+<p>Note the lowest number button event is Btn1</p>
+<p>statusBox has 17 logical buttons (btn1-17).
+Buttons/events can be mapped to multiple physical
+inputs and stay mapped until reset.</p>
+<p>Mode is a string or list of strings that contains
+keywords to determine present mappings and modes for statusBox.</p>
+<p>If mode includes ‘Down’ button events will be
+detected when pressed.
+If mode includes ‘Up’ button events will be
+detected when released.
+You can detect both types of event noting that the event detector
+will look for transitions and ignorewhat it sees as the starting state.</p>
+<p class="rubric">Example</p>
+<p>bits.statusBoxEnable(mode = ‘Down’), map = [(‘btn1’,’Din0’), (‘btn2’,’Din1’)]</p>
+<p>enable the stautsBox to detect Down events on buttons 1 and 2 where they are
+mapped to DIN0 and DIN1.</p>
+<p class="rubric">Example</p>
+<p>bits.statusBoxEnable(mode = [‘Down’,’CB6’])</p>
+<p>enable the statusBox emulation to detect Down events on the standard CB6 IR response box keys.</p>
+<p>Note that the firmware in Display++ units varies over time and some
+features of this class may not work for all firmware versions.
+Also Display++ units can be configured in various ways via their
+config.xml file so this class makes certain assumptions about the
+configuration. In particular it is assumed that all digital inputs,
+triggers and analog inputs are reported as part of status
+updates. If some of these report are disabled in your config.xml file
+then ‘status’ and ‘event’ commands in this class may not work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlusTouch.stopTouchLog">
+<span class="sig-name descname"><span class="pre">stopTouchLog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlusTouch.stopTouchLog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlusTouch.stopTouchLog" title="Link to this definition">¶</a></dt>
+<dd><p>Stop logging data from the Bits#
+Waits for _getLog to finish properly so can
+introduce a timing delay.</p>
+<p>Does not automatically extract the touch log.</p>
+<p class="rubric">Example</p>
+<p>bits.startTouchLog()
+while not event:</p>
+<blockquote>
+<div><p>#do some processing
+continue</p>
+</div></blockquote>
+<p>bits.stopTouchLog()
+res=bits.getTouchLog()</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlusTouch.touchDisable">
+<span class="sig-name descname"><span class="pre">touchDisable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlusTouch.touchDisable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlusTouch.touchDisable" title="Link to this definition">¶</a></dt>
+<dd><p>Turns off the touch screen.</p>
+<p class="rubric">Example</p>
+<p>bits.touchEnable()
+res = bits.touchWait()
+bits.touchDisable()
+print(res.time)</p>
+<p>Enables touch screen, waits for a touch, disables touch screen
+and displays the timestamp of the touch.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlusTouch.touchEnable">
+<span class="sig-name descname"><span class="pre">touchEnable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlusTouch.touchEnable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlusTouch.touchEnable" title="Link to this definition">¶</a></dt>
+<dd><p>Turns on the touch screen. Any presses will now be reported</p>
+<p class="rubric">Example</p>
+<p>bits.touchEnable()
+res = bits.touchWait()
+bits.touchDisable()
+print(res.time)</p>
+<p>Enables touch screen, waits for a touch, disables touch screen
+and displays the timestamp of the touch.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlusTouch.touchPressed">
+<span class="sig-name descname"><span class="pre">touchPressed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlusTouch.touchPressed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlusTouch.touchPressed" title="Link to this definition">¶</a></dt>
+<dd><p>Check to see if (at least) the appropriate number of
+touch screen events have been made</p>
+<p>Not accurate due to touch jitter creating extra events
+but can be used to detect first press.</p>
+<p class="rubric">Example</p>
+<p>bits.touchEnable()
+while not bits.touchPressed(5):</p>
+<blockquote>
+<div><p># do some processing
+continue</p>
+</div></blockquote>
+<p>bits.touchDisable()</p>
+<p>Will do some processing until 5 screen couches are recorded.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlusTouch.touchWait">
+<span class="sig-name descname"><span class="pre">touchWait</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlusTouch.touchWait"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlusTouch.touchWait" title="Link to this definition">¶</a></dt>
+<dd><p>Waits until (at least) one
+touch screen event have been made.
+Then reports the response.
+Pauses programe execution in mean time.</p>
+<p class="rubric">Example</p>
+<p>bits.touchEnable()
+bits.touchWait():
+bits.touchDisable()</p>
+<p>Will pause until 1 screen touch  recorded.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.bits.DisplayPlusPlusTouch.touchWaitN">
+<span class="sig-name descname"><span class="pre">touchWaitN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#DisplayPlusPlusTouch.touchWaitN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.DisplayPlusPlusTouch.touchWaitN" title="Link to this definition">¶</a></dt>
+<dd><p>Waits until (at least) the appropriate number of
+touch screen events have been made
+then reports the responses.
+Pauses program execution in mean time.</p>
+<p>Not every accurate due to touch jitter creating extra events.</p>
+<p class="rubric">Example</p>
+<p>bits.touchEnable()
+bits.touchWaitN(5):
+bits.touchDisable()</p>
+<p>Will pause until 5 screen touches are recorded.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="psychopy_crs.bits.button">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.bits.</span></span><span class="sig-name descname"><span class="pre">button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'None'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">button</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#button"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.button" title="Link to this definition">¶</a></dt>
+<dd><p>clever dict like object or object like dict
+for button presses</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="psychopy_crs.bits.event">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.bits.</span></span><span class="sig-name descname"><span class="pre">event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'None'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'None'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.event" title="Link to this definition">¶</a></dt>
+<dd><p>clever dict like object or object like dict
+for Bits# status events</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="psychopy_crs.bits.init">
+<span class="sig-prename descclassname"><span class="pre">psychopy_crs.bits.</span></span><span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.init" title="Link to this definition">¶</a></dt>
+<dd><p>DEPRECATED: we used to initialise Bits++ via the compiled dll
+This only ever worked on windows and BitsSharp doesn’t need it at all
+Note that, by default, Bits++ will perform gamma correction
+that you don’t want (unless you have the CRS calibration device)
+(Recommended that you use the BitsPlusPlus class rather than
+calling this directly)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="psychopy_crs.bits.reset">
+<span class="sig-prename descclassname"><span class="pre">psychopy_crs.bits.</span></span><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">noGamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.reset" title="Link to this definition">¶</a></dt>
+<dd><p>Reset the Bits++ box via the USB cable by initialising again
+Allows the option to turn off gamma correction</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="psychopy_crs.bits.setVideoMode">
+<span class="sig-prename descclassname"><span class="pre">psychopy_crs.bits.</span></span><span class="sig-name descname"><span class="pre">setVideoMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">videoMode</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#setVideoMode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.setVideoMode" title="Link to this definition">¶</a></dt>
+<dd><p>Set the video mode of the Bits++ (win32 only)
+bits8BITPALETTEMODE = 0x00000001  # normal vsg mode
+NOGAMMACORRECT = 0x00004000  # No gamma correction mode
+GAMMACORRECT = 0x00008000  # Gamma correction mode
+VIDEOENCODEDCOMMS = 0x00080000
+(Recommended that you use the BitsLUT class rather than
+calling this directly)</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="psychopy_crs.bits.status">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.bits.</span></span><span class="sig-name descname"><span class="pre">status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trigIn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bitsvals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">IR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ADCs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.status" title="Link to this definition">¶</a></dt>
+<dd><p>clever dict like object or object like dict
+for Bits# status messages</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="psychopy_crs.bits.touch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.bits.</span></span><span class="sig-name descname"><span class="pre">touch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'down'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/bits/#touch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.bits.touch" title="Link to this definition">¶</a></dt>
+<dd><p>clever dict like object or object like dict
+for touch screen presses</p>
+</dd></dl>
+
+</section>
+
+
+      <br/><a href="#" class="pull-right">Back to top</a>
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <span class="pull-right">
+      
+        
+<div id="sourcelink">
+  <a href="https://github.com/psychopy/psychopy/blob/master/docs/source/coder/bits.rst"
+     rel="nofollow">Source</a>
+</div>
+      <br/>
+
+          &copy; 2002-2018 <a href="https://www.peirce.org.uk/">Jonathan Peirce</a><br/>
+          &copy; 2019 <a href="https://opensciencetools.org/">Open Science Tools Ltd.</a><br/><br/>
+        PsychoPy<sup>®</sup> and Pavlovia<sup>®</sup> are registered trademarks of Open Science Tools Ltd.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.3.7.<br/><br/>
+    </span>
+
+    <a href="http://www.nottingham.ac.uk/"><img src="../../_static/Nottingham Supported.png", alt="Uni of Nottingham" width=250></a>
+  </div>
+
+</footer>
+  </body>
+</html>

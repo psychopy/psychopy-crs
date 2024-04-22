@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Opti CAL &#8212; PsychoPy Example Plugin 0.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=536c50fe" />
+    <link rel="stylesheet" type="text/css" href="../../_static/psychopy.css?v=b9f4e6dd" />
+    <script src="../../_static/documentation_options.js?v=d20be8f5"></script>
+    <script src="../../_static/doctools.js?v=b682be12"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../../_static/js/jquery-fix.js"></script>
+    <script src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Shaders" href="../shaders/" />
+    <link rel="prev" title="Color CAL" href="../colorcal/" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-4089651-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-4089651-2');
+    </script>
+
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+      _paq.push(["setCookieDomain", "*.psychopy.org"]);
+      _paq.push(["setDomains", ["*.psychopy.org","*.discourse.psychopy.org"]]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//analytics.opensciencetools.org/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '3']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//analytics.opensciencetools.org/matomo.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+    <!-- End Matomo Code -->
+
+
+  </head><body>
+
+<!-- The social media icon bar -->
+<div class="social-bar">
+  <a href="" class="github">
+    <i class="fab fa-github"></i></a>
+</div>
+
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand small-logo" href="../../">
+          <img src="../../_static/Psychopy Plugin Header Small.png" alt="PsychoPy Logo">
+        </a>
+        <a class="navbar-brand large-logo" href="../../">
+          <img src="../../_static/Psychopy Plugin Header Large.png" alt="PsychoPy Logo">
+        </a>
+        <!-- <span class="navbar-text navbar-version pull-right"><b></b></span> -->
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse w-100 pull-right">
+          <ul class="nav navbar-nav ml-auto">
+            <li><a href="../../">Home</a></li>
+            <li><a href="../../download/">Install</a></li>
+            
+            <li><a href="https://plugins.psychopy.org/directory.html" class="return-btn">plugins.psychopy.org</a></li>
+            
+              <!-- <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../">Documentation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption" role="heading"><span class="caption-text">Added content for Coder</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../bits/">Bits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colorcal/">Color CAL</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Opti CAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shaders/">Shaders</a></li>
+</ul>
+</ul>
+</li> -->
+              
+            
+            <!--  -->
+            
+            
+          </ul>
+
+            <!-- 
+              
+<form class="navbar-form navbar-right" action="../../search/" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+             -->
+
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 content">
+      
+  <section id="module-psychopy_crs.optical">
+<span id="opti-cal"></span><h1>Opti CAL<a class="headerlink" href="#module-psychopy_crs.optical" title="Link to this heading">¶</a></h1>
+<p>Python interface to the CRS ‘OptiCAL’ photometer.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p>The ‘OptiCAL’ is a photometer that is produced by Cambridge Research
+Systems (CRS). This device is a standard tool for gamma-calibration of
+display devices in vision research. This package provides a free-software
+replacement for the Windows-software distributed by the manufacturer that
+allows querying an OptiCAL via a serial connection. <cite>pyoptical</cite> can be used
+as a library in third-party applications or as a standalone command line
+tool.</p>
+<p>This module provides the <cite>OptiCAL</cite> class and some supporting code. The
+command line wrapper for this module can be found in the ‘pyoptical’
+script.</p>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Command line:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pyoptical</span> <span class="pre">--number=15</span> <span class="pre">--interval=750</span> <span class="pre">/dev/ttyUSB0</span></code></p>
+<p>Make 15 measurements with an interval of 750 ms between them.</p>
+<dl class="simple">
+<dt>usage:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">pyoptical</span> <span class="pre">[-i</span> <span class="pre">interval]</span> <span class="pre">[-n</span> <span class="pre">number</span> <span class="pre">]</span> <span class="pre">[-r]</span> <span class="pre">com-port</span></code></p>
+</dd>
+</dl>
+<p>For more information try, <code class="docutils literal notranslate"><span class="pre">pyoptical</span> <span class="pre">--help</span></code>. For more information
+about the <code class="docutils literal notranslate"><span class="pre">com-port</span></code> argument see: <a class="reference internal" href="#notes-about-the-com-port">Notes about the com-port</a>.</p>
+</dd>
+<dt>Library:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyoptical</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">op</span> <span class="o">=</span> <span class="n">pyoptical</span><span class="o">.</span><span class="n">OptiCAL</span><span class="p">(</span><span class="s1">&#39;dev/dev/ttyUSB0&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">op</span><span class="o">.</span><span class="n">read_luminance</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">except</span> <span class="n">pyoptical</span><span class="o">.</span><span class="n">NACKException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<section id="notes-about-the-com-port">
+<h3>Notes about the com-port<a class="headerlink" href="#notes-about-the-com-port" title="Link to this heading">¶</a></h3>
+<p>The com_port argument for the constructor may vary depending on both
+your operating system and how you connect to the OptiCAL. This code
+was developed using a usb-to-serial adapter that contains a PL2303
+chipset manufactured by Prolific:
+<a class="reference external" href="http://www.prolific.com.tw/eng/Products.asp?ID=59">http://www.prolific.com.tw/eng/Products.asp?ID=59</a>. The following
+sections outline how to access the OptiCAL using pyoptical and a
+usb-to-serial adapter containing the prolific chipset. We have not
+tried this code using a raw serial port, but would be very
+interested to hear from you if you do.</p>
+<dl>
+<dt>Linux (Ubuntu Hardy / Debian Lenny):</dt><dd><p>Support for the PL2303 chipset is compiled into the kernel, and
+the device is automatically recognised. You could check ‘dmesg’
+for the following output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usb</span> <span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="n">new</span> <span class="n">full</span> <span class="n">speed</span> <span class="n">USB</span> <span class="n">device</span> <span class="n">using</span> <span class="n">uhci_hcd</span> <span class="ow">and</span> <span class="n">address</span> <span class="mi">4</span>
+<span class="n">usb</span> <span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="n">configuration</span> <span class="c1">#1 chosen from 1 choice</span>
+<span class="n">pl2303</span> <span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mf">1.0</span><span class="p">:</span> <span class="n">pl2303</span> <span class="n">converter</span> <span class="n">detected</span>
+<span class="n">usb</span> <span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="n">pl2303</span> <span class="n">converter</span> <span class="n">now</span> <span class="n">attached</span> <span class="n">to</span> <span class="n">ttyUSB0</span>
+</pre></div>
+</div>
+<p>In this case the com_port string is simply <code class="docutils literal notranslate"><span class="pre">/dev/ttyUSB0</span></code></p>
+</dd>
+<dt>Mac OSX (10.5.8 Leopard)</dt><dd><p>Support for the PL2303 chipset is provided by the following
+open source driver: <a class="reference external" href="http://osx-pl2303.sourceforge.net/">http://osx-pl2303.sourceforge.net/</a></p>
+<p>In this case the com-port string would be something along the
+lines of <code class="docutils literal notranslate"><span class="pre">/dev/tty.PL2303-xxx</span></code>, for example:
+<code class="docutils literal notranslate"><span class="pre">/dev/tty.PL2303-000031FD</span></code></p>
+</dd>
+<dt>Windows (XP)</dt><dd><p>The manufacturer of your usb-to-serial adapter should provide
+you with drivers.</p>
+<p>In this case the com-port string would be something like:
+<code class="docutils literal notranslate"><span class="pre">COM2</span></code>, check the device manager for the number of the COM port.</p>
+</dd>
+<dt>Other Operating Systems and Adapters:</dt><dd><p>This code has two limitations, most importantly pyserial must
+support your platform. Secondly, if you wish to use a
+usb-to-serial adapter a driver for your target operating system
+must be available from the manufacturer or possibly a third
+party (for example and open source driver).</p>
+</dd>
+</dl>
+</section>
+<section id="notes-about-possible-exceptions">
+<h3>Notes about possible exceptions<a class="headerlink" href="#notes-about-possible-exceptions" title="Link to this heading">¶</a></h3>
+<p>There are three types of exceptions that can happen:</p>
+<ul class="simple">
+<li><p><cite>OptiCALException</cite></p></li>
+<li><p><cite>NACKException</cite></p></li>
+<li><p><cite>TimeoutException</cite></p></li>
+</ul>
+<p>The <cite>OptiCALException</cite> is the base class for all exceptions in this
+module, and it is used as a general purpose exception to signify
+errors on the part of the programmer, do not quietly except these.</p>
+<p>The <cite>NACKException</cite> is raised when the OptiCAL responds with a <code class="docutils literal notranslate"><span class="pre">NACK</span></code>
+byte. It does this either if the command was not understood or if
+the command failed. If this happens during initialization, you may
+have to re-initialise the device. If this happens during readout it
+should be safe to try again instead of terminating the program.</p>
+<p>The <cite>TimeoutException</cite> is raised when no answer is received within the
+default timeout length. This might be caused by a number of issues,
+but essentially means that somehow the communication with the
+OptiCAL might be interrupted, for example because it is no longer
+connected to the computer.</p>
+</section>
+<section id="implementation-details">
+<h3>Implementation details<a class="headerlink" href="#implementation-details" title="Link to this heading">¶</a></h3>
+<p>The interface is implemented according to the protocol specification in the
+OptiCAL-User-Guide Version 4, 1995 including the following amendments:</p>
+<ol class="arabic simple">
+<li><p>To read out the ADC value, an ‘L’ must be sent instead of an ‘R’</p></li>
+<li><p>The equations to convert from ADC to meaningful units had changed. See
+the source code of <code class="docutils literal notranslate"><span class="pre">read_luminance()</span></code> for details.</p></li>
+</ol>
+<p>The full errata is available from the CSR website:</p>
+<p><a class="reference external" href="http://support.crsltd.com/FileManagement/Download/9f5f62bcb3e64eb8934fe72afb937cb6">http://support.crsltd.com/FileManagement/Download/9f5f62bcb3e64eb8934fe72afb937cb6</a></p>
+<p>The corrected versions of the conversion formulas can also be found
+in the OptiCAL.py python interface available from the CRS website,
+written by Walter F. Bischof in 2007. However note that this code may
+contain a bug, see
+<a class="reference external" href="http://groups.google.com/group/psychopy-users/msg/9cb35590daf3a29b">http://groups.google.com/group/psychopy-users/msg/9cb35590daf3a29b</a>
+for detail.</p>
+<p>The constructor will first perform the initial calibration of the
+device as required by the protocol specification. Next it will read
+out all parameters from the eeprom and store them as private
+variables. And lastly it will put the device into the default mode.</p>
+<p>The initial version of the OptiCAL hardware supported two readout
+modes ‘current’ and ‘voltage’. The device could be used to read
+luminance when in ‘current’ mode and ‘voltage’ when in voltage mode.
+Over the years there have been two revisions of the OptiCAL
+hardware, both no longer supported usage as a voltmeter, and thus
+the ‘voltage’ mode has become redundant. Since version 0.2 this
+interface no longer supports the ‘voltage’ mode, and the device will
+be put into ‘current’ mode at startup.</p>
+</section>
+</section>
+<dl class="py exception">
+<dt class="sig sig-object py" id="psychopy_crs.optical.NACKException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.optical.</span></span><span class="sig-name descname"><span class="pre">NACKException</span></span><a class="reference internal" href="../../_modules/psychopy_crs/optical/#NACKException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.optical.NACKException" title="Link to this definition">¶</a></dt>
+<dd><p>raised when the OptiCAL sends a NACK byte to signify an error</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="psychopy_crs.optical.OptiCAL">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.optical.</span></span><span class="sig-name descname"><span class="pre">OptiCAL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">com_port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/optical/#OptiCAL"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.optical.OptiCAL" title="Link to this definition">¶</a></dt>
+<dd><p>Object to access the OptiCAL</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="psychopy_crs.optical.OptiCAL.read_luminance">
+<span class="sig-name descname"><span class="pre">read_luminance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/psychopy_crs/optical/#OptiCAL.read_luminance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.optical.OptiCAL.read_luminance" title="Link to this definition">¶</a></dt>
+<dd><p>the luminance in cd/m**2</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="psychopy_crs.optical.OptiCALException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.optical.</span></span><span class="sig-name descname"><span class="pre">OptiCALException</span></span><a class="reference internal" href="../../_modules/psychopy_crs/optical/#OptiCALException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.optical.OptiCALException" title="Link to this definition">¶</a></dt>
+<dd><p>base exception for all OptiCAL exceptions</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="psychopy_crs.optical.TimeoutException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psychopy_crs.optical.</span></span><span class="sig-name descname"><span class="pre">TimeoutException</span></span><a class="reference internal" href="../../_modules/psychopy_crs/optical/#TimeoutException"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#psychopy_crs.optical.TimeoutException" title="Link to this definition">¶</a></dt>
+<dd><p>raised when the OptiCAL does not respond within the timeout limit</p>
+</dd></dl>
+
+</section>
+
+
+      <br/><a href="#" class="pull-right">Back to top</a>
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <span class="pull-right">
+      
+        
+<div id="sourcelink">
+  <a href="https://github.com/psychopy/psychopy/blob/master/docs/source/coder/optical.rst"
+     rel="nofollow">Source</a>
+</div>
+      <br/>
+
+          &copy; 2002-2018 <a href="https://www.peirce.org.uk/">Jonathan Peirce</a><br/>
+          &copy; 2019 <a href="https://opensciencetools.org/">Open Science Tools Ltd.</a><br/><br/>
+        PsychoPy<sup>®</sup> and Pavlovia<sup>®</sup> are registered trademarks of Open Science Tools Ltd.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.3.7.<br/><br/>
+    </span>
+
+    <a href="http://www.nottingham.ac.uk/"><img src="../../_static/Nottingham Supported.png", alt="Uni of Nottingham" width=250></a>
+  </div>
+
+</footer>
+  </body>
+</html>

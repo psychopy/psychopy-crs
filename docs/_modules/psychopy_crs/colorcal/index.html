@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>psychopy_crs.colorcal &#8212; PsychoPy Example Plugin 0.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=536c50fe" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/psychopy.css?v=b9f4e6dd" />
+    <script src="../../../_static/documentation_options.js?v=d20be8f5"></script>
+    <script src="../../../_static/doctools.js?v=b682be12"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../../../_static/js/jquery-fix.js"></script>
+    <script src="../../../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-4089651-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-4089651-2');
+    </script>
+
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+      _paq.push(["setCookieDomain", "*.psychopy.org"]);
+      _paq.push(["setDomains", ["*.psychopy.org","*.discourse.psychopy.org"]]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//analytics.opensciencetools.org/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '3']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//analytics.opensciencetools.org/matomo.php?idsite=3&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+    <!-- End Matomo Code -->
+
+
+  </head><body>
+
+<!-- The social media icon bar -->
+<div class="social-bar">
+  <a href="" class="github">
+    <i class="fab fa-github"></i></a>
+</div>
+
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand small-logo" href="../../../">
+          <img src="../../../_static/Psychopy Plugin Header Small.png" alt="PsychoPy Logo">
+        </a>
+        <a class="navbar-brand large-logo" href="../../../">
+          <img src="../../../_static/Psychopy Plugin Header Large.png" alt="PsychoPy Logo">
+        </a>
+        <!-- <span class="navbar-text navbar-version pull-right"><b></b></span> -->
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse w-100 pull-right">
+          <ul class="nav navbar-nav ml-auto">
+            <li><a href="../../../">Home</a></li>
+            <li><a href="../../../download/">Install</a></li>
+            
+            <li><a href="https://plugins.psychopy.org/directory.html" class="return-btn">plugins.psychopy.org</a></li>
+            
+              <!-- <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../">Documentation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption" role="heading"><span class="caption-text">Added content for Coder</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../coder/bits/">Bits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coder/colorcal/">Color CAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coder/optical/">Opti CAL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../coder/shaders/">Shaders</a></li>
+</ul>
+</ul>
+</li> -->
+              
+            
+            <!--  -->
+            
+            
+          </ul>
+
+            <!-- 
+              
+<form class="navbar-form navbar-right" action="../../../search/" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+             -->
+
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 content">
+      
+  <h1>Source code for psychopy_crs.colorcal</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1"># Originally part of the PsychoPy library</span>
+<span class="c1"># Copyright (C) 2002-2018 Jonathan Peirce (C) 2019-2022 Open Science Tools Ltd.</span>
+<span class="c1"># Distributed under the terms of the GNU General Public License (GPL).</span>
+
+<span class="c1"># Acknowledgements:</span>
+<span class="c1">#    This code was mostly written by Jon Peirce.</span>
+<span class="c1">#    CRS Ltd provided support as needed.</span>
+
+<span class="c1"># Acknowledgements</span>
+<span class="c1">#    This code was written by Jon Peirce</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">serial</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+    <span class="n">serial</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="n">__docformat__</span> <span class="o">=</span> <span class="s2">&quot;restructuredtext en&quot;</span>
+
+<span class="c1"># try to use psychopy logging but revert to system logging</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">psychopy</span> <span class="kn">import</span> <span class="n">logging</span>  <span class="c1"># from 1.73 onwards</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">logging</span>  <span class="c1"># use the standard python logging</span>
+<span class="n">eol</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\r</span><span class="s2">&quot;</span>  <span class="c1"># unusual for a serial port?!</span>
+
+
+<div class="viewcode-block" id="ColorCAL">
+<a class="viewcode-back" href="../../../coder/colorcal/#psychopy_crs.colorcal.ColorCAL">[docs]</a>
+<span class="k">class</span> <span class="nc">ColorCAL</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A class to handle the CRS Ltd ColorCAL device</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># PsychoPy uses these two variables for matching classes to photometers</span>
+    <span class="n">longName</span> <span class="o">=</span> <span class="s2">&quot;CRS ColorCAL&quot;</span>
+    <span class="n">driverFor</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;colorcal&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">maxAttempts</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Open serial port connection with Colorcal II device</span>
+
+<span class="sd">        :Usage:</span>
+
+<span class="sd">            cc = ColorCAL(port, maxAttempts)</span>
+
+<span class="sd">       If no port is provided then the following defaults will be tried:</span>
+<span class="sd">           - /dev/cu.usbmodem0001 (OSX)</span>
+<span class="sd">           - /dev/ttyACM0</span>
+<span class="sd">           - COM3 (windows)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ColorCAL</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">serial</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s1">&#39;The module serial is needed to connect to &#39;</span>
+                              <span class="s1">&#39;photometers. On most systems this can be &#39;</span>
+                              <span class="s1">&#39;installed with</span><span class="se">\n\t</span><span class="s1"> easy_install pyserial&#39;</span><span class="p">)</span>
+
+        <span class="c1"># try to deduce port</span>
+        <span class="k">if</span> <span class="n">port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;darwin&#39;</span><span class="p">:</span>
+                <span class="n">port</span> <span class="o">=</span> <span class="s1">&#39;/dev/cu.usbmodem0001&#39;</span>
+            <span class="k">elif</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;linux&#39;</span><span class="p">):</span>
+                <span class="n">port</span> <span class="o">=</span> <span class="s1">&#39;/dev/ttyACM0&#39;</span>
+            <span class="k">elif</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;win&#39;</span><span class="p">):</span>
+                <span class="n">port</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">port</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+            <span class="c1"># add one so that port 1=COM1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">portNumber</span> <span class="o">=</span> <span class="n">port</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">portString</span> <span class="o">=</span> <span class="s1">&#39;COM</span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">portNumber</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">portString</span> <span class="o">=</span> <span class="n">port</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">portNumber</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">isOpen</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lastLum</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lastCmd</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="s1">&#39;ColorCAL&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">com</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">OK</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># until we fail</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maxAttempts</span> <span class="o">=</span> <span class="n">maxAttempts</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_zeroCalibrated</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># try to open the port</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">com</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">portString</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Couldn&#39;t connect to port </span><span class="si">%s</span><span class="s2">. Is it being used by &quot;</span>
+                   <span class="s2">&quot;another program?&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_error</span><span class="p">(</span><span class="n">msg</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">portString</span><span class="p">)</span>
+
+        <span class="c1"># setup the params for serial port</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">OK</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>  <span class="c1"># not sure why this helps but on win32 it does!!</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">setBaudrate</span><span class="p">(</span><span class="mi">115200</span><span class="p">)</span>  <span class="c1"># actually, any baudrate is fine?</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">baudrate</span> <span class="o">=</span> <span class="mi">115200</span>  <span class="c1"># setBaudrate() remov pyserial v3.0</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">isOpen</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Opened serial port </span><span class="si">%s</span><span class="s2">, but couldn&#39;t connect to ColorCAL&quot;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_error</span><span class="p">(</span><span class="n">msg</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">portString</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">isOpen</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="c1"># check that we can communicate with it</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ok</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">serialNum</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">firm</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmBuild</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calibMatrix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getCalibMatrix</span><span class="p">()</span>
+
+<div class="viewcode-block" id="ColorCAL.sendMessage">
+<a class="viewcode-back" href="../../../coder/colorcal/#psychopy_crs.colorcal.ColorCAL.sendMessage">[docs]</a>
+    <span class="k">def</span> <span class="nf">sendMessage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Send a command to the photometer and wait an allotted</span>
+<span class="sd">        timeout for a response.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># flush the read buffer first</span>
+        <span class="c1"># read as many chars as are in the buffer</span>
+        <span class="n">prevOut</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">inWaiting</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">prevOut</span><span class="p">)</span> <span class="ow">and</span> <span class="n">prevOut</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;&gt;&#39;</span> <span class="o">+</span> <span class="n">eol</span><span class="p">,</span> <span class="n">eol</span><span class="p">):</span>
+            <span class="c1"># do not use log messages here</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Resp found to prev cmd (</span><span class="si">%s</span><span class="s1">):</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lastCmd</span><span class="p">,</span> <span class="n">prevOut</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lastCmd</span> <span class="o">=</span> <span class="n">message</span>
+        
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">bytes</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">message</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\n\r</span><span class="s1">&#39;</span><span class="p">)):</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>  <span class="c1"># append a newline if necess</span>
+        <span class="c1"># send the message</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="c1"># get reply (within timeout limit)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Sent command:</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">message</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>  <span class="c1"># send complete msg</span>
+
+        <span class="c1"># get output lines using self.readline, not self.com.readline</span>
+        <span class="c1"># colorcal signals the end of a message by giving a command prompt</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">thisLine</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">nEmpty</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">thisLine</span> <span class="o">!=</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">nEmpty</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxAttempts</span><span class="p">):</span>
+            <span class="c1"># self.com.readline can&#39;t handle custom eol</span>
+            <span class="n">thisLine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="n">eol</span><span class="o">=</span><span class="n">eol</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">thisLine</span> <span class="ow">in</span> <span class="p">(</span><span class="n">eol</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>  <span class="c1"># lines we don&#39;t care about</span>
+                <span class="n">nEmpty</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">continue</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># line without any eol chars</span>
+                <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thisLine</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="n">eol</span><span class="p">))</span>
+                <span class="n">nEmpty</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># got all lines and reached &#39;&gt;&#39;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># return the string</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">lines</span>  <span class="c1"># a list of lines</span></div>
+
+
+<div class="viewcode-block" id="ColorCAL.measure">
+<a class="viewcode-back" href="../../../coder/colorcal/#psychopy_crs.colorcal.ColorCAL.measure">[docs]</a>
+    <span class="k">def</span> <span class="nf">measure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Conduct a measurement and return the X,Y,Z values</span>
+
+<span class="sd">        Usage::</span>
+
+<span class="sd">            ok, X, Y, Z = colorCal.measure()</span>
+
+<span class="sd">        Where:</span>
+<span class="sd">            ok is True/False</span>
+<span class="sd">            X, Y, Z are the CIE coordinates (Y is luminance in cd/m**2)</span>
+
+<span class="sd">        Following a call to measure, the values ColorCAL.lastLum will also be</span>
+<span class="sd">        populated with, for compatibility with other devices used by PsychoPy</span>
+<span class="sd">        (notably the PR650/PR655)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># use a long timeout for measurement:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="s1">&#39;MES&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">valstrip</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\r</span><span class="s1">&gt;&#39;</span><span class="p">)</span>
+        <span class="n">vals</span> <span class="o">=</span> <span class="n">valstrip</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="n">ok</span> <span class="o">=</span> <span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;OK00&#39;</span><span class="p">)</span>
+        <span class="c1"># transform raw x,y,z by calibration matrix</span>
+        <span class="n">xyzRaw</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">vals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">vals</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">vals</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">calibMatrix</span><span class="p">,</span> <span class="n">xyzRaw</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ok</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastLum</span> <span class="o">=</span> <span class="n">ok</span><span class="p">,</span> <span class="n">Y</span>
+        <span class="k">return</span> <span class="n">ok</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span></div>
+
+
+<div class="viewcode-block" id="ColorCAL.getLum">
+<a class="viewcode-back" href="../../../coder/colorcal/#psychopy_crs.colorcal.ColorCAL.getLum">[docs]</a>
+    <span class="k">def</span> <span class="nf">getLum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Conducts a measurement and returns the measured luminance</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">            The luminance is always also stored as .lastLum</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastLum</span></div>
+
+
+<div class="viewcode-block" id="ColorCAL.getInfo">
+<a class="viewcode-back" href="../../../coder/colorcal/#psychopy_crs.colorcal.ColorCAL.getInfo">[docs]</a>
+    <span class="k">def</span> <span class="nf">getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Queries the device for information</span>
+
+<span class="sd">        usage::</span>
+<span class="sd">            (ok, serialNumber,</span>
+<span class="sd">                firmwareVersion, firmwareBuild) = colorCal.getInfo()</span>
+
+<span class="sd">        `ok` will be True/False</span>
+<span class="sd">        Other values will be a string or None.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;IDR&#39;</span><span class="p">)</span>
+        <span class="n">valstrip</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\r</span><span class="s1">&gt;&#39;</span><span class="p">)</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">valstrip</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="n">ok</span> <span class="o">=</span> <span class="p">(</span><span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;OK00&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ok</span><span class="p">:</span>
+            <span class="n">firmware</span> <span class="o">=</span> <span class="n">val</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">serialNum</span> <span class="o">=</span> <span class="n">val</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+            <span class="n">firmBuild</span> <span class="o">=</span> <span class="n">val</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">firmware</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">serialNum</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">firmBuild</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="n">ok</span><span class="p">,</span> <span class="n">serialNum</span><span class="p">,</span> <span class="n">firmware</span><span class="p">,</span> <span class="n">firmBuild</span></div>
+
+
+<div class="viewcode-block" id="ColorCAL.getNeedsCalibrateZero">
+<a class="viewcode-back" href="../../../coder/colorcal/#psychopy_crs.colorcal.ColorCAL.getNeedsCalibrateZero">[docs]</a>
+    <span class="k">def</span> <span class="nf">getNeedsCalibrateZero</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check whether the device needs a dark calibration</span>
+
+<span class="sd">        In initial versions of CRS ColorCAL mkII the device stored</span>
+<span class="sd">        its zero calibration in volatile memory and needed to be</span>
+<span class="sd">        calibrated in darkness each time you connected it to the USB</span>
+
+<span class="sd">        This function will check whether your device requires that (based</span>
+<span class="sd">        on firmware build number and whether you&#39;ve already done it</span>
+<span class="sd">        since python connected to the device).</span>
+
+<span class="sd">        :returns: True or False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firmBuild</span> <span class="o">&lt;</span> <span class="s1">&#39;877&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_zeroCalibrated</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="ColorCAL.calibrateZero">
+<a class="viewcode-back" href="../../../coder/colorcal/#psychopy_crs.colorcal.ColorCAL.calibrateZero">[docs]</a>
+    <span class="k">def</span> <span class="nf">calibrateZero</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform a calibration to zero light.</span>
+
+<span class="sd">        For early versions of the ColorCAL this had to be called after</span>
+<span class="sd">        connecting to the device. For later versions the dark calibration</span>
+<span class="sd">        was performed at the factory and stored in non-volatile memory.</span>
+
+<span class="sd">        You can check if you need to run a calibration with::</span>
+
+<span class="sd">            ColorCAL.getNeedsCalibrateZero()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;UZC&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\r</span><span class="s1">&gt;&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="s1">&#39;OK00&#39;</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">elif</span> <span class="n">val</span> <span class="o">==</span> <span class="s1">&#39;ER11&#39;</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="s2">&quot;Could not calibrate ColorCAL2. Is it properly covered?&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># unlikely</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">&quot;Received surprising result from ColorCAL2: </span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="nb">repr</span><span class="p">(</span><span class="n">val</span><span class="p">))</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="c1"># then take a measurement to see if we are close to zero lum (ie is it</span>
+        <span class="c1"># covered?)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ok</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;There seems to be some light getting to the &#39;</span>
+                          <span class="s1">&#39;detector. It should be well-covered for zero &#39;</span>
+                          <span class="s1">&#39;calibration&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_zeroCalibrated</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calibMatrix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getCalibMatrix</span><span class="p">()</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="ColorCAL.getCalibMatrix">
+<a class="viewcode-back" href="../../../coder/colorcal/#psychopy_crs.colorcal.ColorCAL.getCalibMatrix">[docs]</a>
+    <span class="k">def</span> <span class="nf">getCalibMatrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the calibration matrix from the device, needed for transforming</span>
+<span class="sd">        measurements into real-world values.</span>
+
+<span class="sd">        This is normally retrieved during __init__ and stored as</span>
+<span class="sd">        `ColorCal.calibMatrix` so most users don&#39;t need to call this function.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">matrix</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="c1"># alternatively use &#39;r99&#39; which gets all rows at once, but then more</span>
+        <span class="c1"># parsing?</span>
+        <span class="k">for</span> <span class="n">rowN</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="n">rowName</span> <span class="o">=</span> <span class="s1">&#39;r0</span><span class="si">%i</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">rowN</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">rowName</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+            <span class="n">valstrip</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\r</span><span class="s1">&gt;&#39;</span><span class="p">)</span>
+            <span class="n">vals</span> <span class="o">=</span> <span class="n">valstrip</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>  <span class="c1"># convert to list of values</span>
+            <span class="k">if</span> <span class="n">vals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;OK00&#39;</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="c1"># convert to numpy array</span>
+                <span class="n">rawVals</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+                <span class="n">floats</span> <span class="o">=</span> <span class="n">_minolta2float</span><span class="p">(</span><span class="n">rawVals</span><span class="p">)</span>
+                <span class="n">matrix</span><span class="p">[</span><span class="n">rowN</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">floats</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;ColorCAL got this from command </span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">msg</span> <span class="o">%</span> <span class="p">(</span><span class="n">rowName</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">val</span><span class="p">)))</span>
+        <span class="k">return</span> <span class="n">matrix</span></div>
+
+
+    <span class="k">def</span> <span class="nf">_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">OK</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ColorCAL.readline">
+<a class="viewcode-back" href="../../../coder/colorcal/#psychopy_crs.colorcal.ColorCAL.readline">[docs]</a>
+    <span class="k">def</span> <span class="nf">readline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">eol</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n\r</span><span class="s1">&#39;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;This should be used in place of the standard serial.Serial.readline()</span>
+<span class="sd">        because that doesn&#39;t allow us to set the eol character</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># The code here is adapted from</span>
+        <span class="c1">#    pyserial 2.5: serialutil.FileLike.readline</span>
+        <span class="c1"># which is released under the python license.</span>
+        <span class="c1"># Copyright (C) 2001-2010 Chris Liechti</span>
+        <span class="n">leneol</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">eol</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">()</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># NB timeout is applied here, so to each char read</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">c</span><span class="p">:</span>
+                <span class="n">line</span> <span class="o">+=</span> <span class="n">c</span>
+                <span class="k">if</span> <span class="n">line</span><span class="p">[</span><span class="o">-</span><span class="n">leneol</span><span class="p">:]</span> <span class="o">==</span> <span class="n">eol</span><span class="p">:</span>
+                    <span class="k">break</span>
+                <span class="k">if</span> <span class="n">size</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">size</span><span class="p">:</span>
+                    <span class="k">break</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span></div>
+</div>
+
+
+
+<span class="k">def</span> <span class="nf">_minolta2float</span><span class="p">(</span><span class="n">inVal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Takes a number, or numeric array (any shape) and returns the appropriate</span>
+<span class="sd">    float.</span>
+
+<span class="sd">    minolta stores;</span>
+<span class="sd">        +ve values as val * 10000</span>
+<span class="sd">        -ve values as -val * 10000 + 50000</span>
+
+<span class="sd">    &gt;&gt;&gt; _minolta2Float(50347)  # NB returns a single float</span>
+<span class="sd">    -0.034700000000000002</span>
+<span class="sd">    &gt;&gt;&gt; _minolta2Float(10630)</span>
+<span class="sd">    1.0630999999999999</span>
+<span class="sd">    &gt;&gt;&gt; _minolta2Float([10635, 50631])  # NB returns a numpy array</span>
+<span class="sd">    array([ 1.0635, -0.0631])</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># convert  to array if needed</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">inVal</span><span class="p">)</span>
+    <span class="c1"># handle single vals</span>
+    <span class="k">if</span> <span class="n">arr</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">():</span>
+        <span class="k">if</span> <span class="n">inVal</span> <span class="o">&lt;</span> <span class="mi">50000</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">inVal</span><span class="o">/</span><span class="mf">10000.0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="n">inVal</span> <span class="o">+</span> <span class="mf">50000.0</span><span class="p">)</span><span class="o">/</span><span class="mf">10000.0</span>
+    <span class="c1"># handle arrays</span>
+    <span class="n">negs</span> <span class="o">=</span> <span class="p">(</span><span class="n">arr</span> <span class="o">&gt;</span> <span class="mi">50000</span><span class="p">)</span>  <span class="c1"># find negative values</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">arr</span><span class="o">/</span><span class="mf">10000.0</span>  <span class="c1"># these are the positive values</span>
+    <span class="n">out</span><span class="p">[</span><span class="n">negs</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">arr</span><span class="p">[</span><span class="n">negs</span><span class="p">]</span> <span class="o">+</span> <span class="mf">50000.0</span><span class="p">)</span><span class="o">/</span><span class="mf">10000.0</span>
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+
+      <br/><a href="#" class="pull-right">Back to top</a>
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <span class="pull-right">
+      
+        
+      <br/>
+
+          &copy; 2002-2018 <a href="https://www.peirce.org.uk/">Jonathan Peirce</a><br/>
+          &copy; 2019 <a href="https://opensciencetools.org/">Open Science Tools Ltd.</a><br/><br/>
+        PsychoPy<sup>®</sup> and Pavlovia<sup>®</sup> are registered trademarks of Open Science Tools Ltd.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.3.7.<br/><br/>
+    </span>
+
+    <a href="http://www.nottingham.ac.uk/"><img src="../../../_static/Nottingham Supported.png", alt="Uni of Nottingham" width=250></a>
+  </div>
+
+</footer>
+  </body>
+</html>
