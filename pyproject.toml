@@ -30,7 +30,7 @@ urls.documentation = "https://pages.github.com/psychopy/psychopy-crs"
 urls.repository = "https://github.com/psychopy/psychopy-crs"
 dependencies = [
   "pyserial",
-  "numpy",
+  "numpy < 1.24",
 ]
 
 [project.optional-dependencies]
