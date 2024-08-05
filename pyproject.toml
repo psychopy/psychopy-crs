@@ -29,8 +29,6 @@ urls.changelog = "https://github.com/psychopy/psychopy-crs/blob/main/CHANGELOG.t
 urls.documentation = "https://pages.github.com/psychopy/psychopy-crs"
 urls.repository = "https://github.com/psychopy/psychopy-crs"
 dependencies = [
-  "pyserial",
-  "numpy < 1.24",
 ]
 
 [project.optional-dependencies]
@@ -42,12 +40,22 @@ docs = [
 ]
 # dependencies for running the test suite
 tests = [
-  "psychopy @ git+https://github.com/psychopy/psychopy@release",
+  "psychopy",
   "pytest",
 ]
 
-[project.entry-points."psychopy.hardware.crs"]
-bits = "psychopy_crs.bits"
-colorcal = "psychopy_crs.colorcal"
-optical = "psychopy_crs.optical"
-shaders = "psychopy_crs.shaders"
+[project.entry-points."psychopy.hardware.crs.bits"]
+BitsSharp = "psychopy_crs.bits:BitsSharp"
+BitsPlusPlus = "psychopy_crs.bits:BitsPlusPlus"
+DisplayPlusPlus = "psychopy_crs.bits:DisplayPlusPlus"
+DisplayPlusPlusTouch = "psychopy_crs.bits:DisplayPlusPlusTouch"
+
+[project.entry-points."psychopy.hardware.crs.colorcal"]
+ColorCAL = "psychopy_crs.colorcal:ColorCAL"
+
+[project.entry-points."psychopy.hardware.crs.optical"]
+OptiCAL = "psychopy_crs.optical:OptiCAL"
+
+[project.entry-points."psychopy.hardware.crs.shaders"]
+bitsMonoModeFrag = "psychopy_crs.shaders:bitsMonoModeFrag"
+bitsColorModeFrag = "psychopy_crs.shaders:bitsColorModeFrag"
