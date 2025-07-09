@@ -59,3 +59,6 @@ OptiCAL = "psychopy_crs.optical:OptiCAL"
 [project.entry-points."psychopy.hardware.crs.shaders"]
 bitsMonoModeFrag = "psychopy_crs.shaders:bitsMonoModeFrag"
 bitsColorModeFrag = "psychopy_crs.shaders:bitsColorModeFrag"
+
+[project.entry-points."psychopy.experiment.monitor"]
+SpectroCALDeviceBackend = "psychopy_crs.experiment.spectrocal:SpectroCALDeviceBackend"
