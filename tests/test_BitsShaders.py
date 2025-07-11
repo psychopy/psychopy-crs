@@ -7,8 +7,9 @@ Created on Mon Dec 15 15:22:48 2014
 from psychopy import visual
 from psychopy.tools import systemtools
 from psychopy.tests import skip_under_vm
+from psychopy.hardware.exceptions import DeviceNotConnectedError
 import numpy as np
-from psychopy.plugins import activatePlugins
+import pytest
 
 try:
     from PIL import Image
@@ -30,7 +31,8 @@ expectedVals = {
         255.0: {'lowG': array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]),
         'highR': array([250, 251, 252, 253, 254, 255]),
         'lowR': array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]),
-        'highG': array([250, 251, 252, 253, 254, 255])}},
+        'highG': array([250, 251, 252, 253, 254, 255])}
+    },
     'mono++':{1024: {'lowG': array([  0,  64, 128, 192,   0,  64, 128, 192,   0,  64]),
         'highR': array([62, 62, 62, 63, 63, 63]),
         'lowR': array([0, 0, 0, 0, 1, 1, 1, 1, 2, 2]),
@@ -42,7 +44,8 @@ expectedVals = {
         255.0: {'lowG': array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]),
         'highR': array([250, 251, 252, 253, 254, 255]),
         'lowR': array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]),
-        'highG': array([250, 251, 252, 253, 254, 255])}},
+        'highG': array([250, 251, 252, 253, 254, 255])}
+    },
     'bits++': {
         1024: {'lowG': array([106, 136,  19,  25, 115,  68,  41, 159,   0,   0]),
         'highR': array([119, 118, 120, 119, 121, 120]),
@@ -55,19 +58,34 @@ expectedVals = {
         255.0: {'lowG': array([106, 136,  19,  25, 115,  68,  41, 159,   0,   0]),
         'highR': array([119, 118, 120, 119, 121, 120]),
         'lowR': array([ 36,  63,   8, 211,   3, 112,  56,  34,   0,   0]),
-        'highG': array([119, 118, 120, 119, 121, 120])}}}
+        'highG': array([119, 118, 120, 119, 121, 120])}
+    }
+}
 
 @skip_under_vm
-def test_bitsShaders(self):
-    # activate plugins so crs classes are available
-    activatePlugins()
+def test_bitsShaders():
+    win = visual.Window(
+        [1024, 768], 
+        fullscr=0, 
+        screen=1, 
+        useFBO=True,
+        autoLog=True
+    )
 
-    from psychopy.hardware.crs.bits import BitsSharp
-
-    win = visual.Window([1024, 768], fullscr=0, screen=1, useFBO=True,
-                        autoLog=True)
-
-    bits = BitsSharp(win, mode='bits++', noComms=True)
+    #initialise BitsSharp
+    try:
+        from psychopy_crs.bits import BitsSharp
+        bits = BitsSharp(win=win, mode='color++')
+    except ImportError:
+        pytest.skip(
+            "crs.BitsSharp: could not initialize. possible:\n"
+            "from serial.tools import list_ports\n"
+            "ImportError: No module named tools"
+        )
+    except DeviceNotConnectedError:
+        pytest.skip(
+            "Skipping test as no BitsSharp box is connected"
+        )
 
     # draw a ramp across the screenexpectedVals = range(256)
     w, h = win.size

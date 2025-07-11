@@ -51,10 +51,10 @@ DisplayPlusPlus = "psychopy_crs.bits:DisplayPlusPlus"
 DisplayPlusPlusTouch = "psychopy_crs.bits:DisplayPlusPlusTouch"
 
 [project.entry-points."psychopy.hardware.crs.colorcal"]
-ColorCAL = "psychopy_crs.colorcal:ColorCAL"
+ColorCAL = "psychopy_crs.legacy.colorcal:ColorCAL"
 
 [project.entry-points."psychopy.hardware.crs.optical"]
-OptiCAL = "psychopy_crs.optical:OptiCAL"
+OptiCAL = "psychopy_crs.legacy.optical:OptiCAL"
 
 [project.entry-points."psychopy.hardware.crs.shaders"]
 bitsMonoModeFrag = "psychopy_crs.shaders:bitsMonoModeFrag"
