@@ -7,7 +7,7 @@ import re
 
 
 class SpectroCALResponse(PhotometerResponse):
-    fields = PhotometerResponse.fields + ["lum", "spd", "chrom"]
+    fields = PhotometerResponse.fields + ["spd", "chrom"]
     def __init__(self, t, value, spd, chrom, device=None):
         PhotometerResponse.__init__(
             self,
@@ -338,27 +338,19 @@ class SpectroCALDevice(BasePhotometerDevice):
     
     @staticmethod
     def getAvailableDevices():
+        import serial.tools.list_ports
+
         profiles = []
-        # use windows profiler to get all serial devices
-        for device in systemtools.systemProfilerWindowsOS(
-            classid="{4d36e978-e325-11ce-bfc1-08002be10318}",
-            connected=True
-        ):
+
+        # iterate through serial devices via pyserial
+        for device in serial.tools.list_ports.comports():
             # filter only for those which look like a spectrocal
-            if re.match(
-                pattern=r"FTDIBUS\\+VID_0403\+PID_6001\+\d+\w\\+0000",
-                string=device['Instance ID']
-            ):
-                # get port
-                port = re.match(
-                    pattern=r"USB Serial Port \((COM\d+)\)",
-                    string=device['Device Description']
-                ).group(1)
+            if device.vid in (861, 1027) and device.pid in (1000, 1001, 1002, 1003, 1004, 24577):
                 # construct profile
                 profiles.append({
-                    'deviceName': f"SpectroCAL@{port}",
+                    'deviceName': f"SpectroCAL@{device.device}",
                     'deviceClass': "psychopy_crs.hardware.spectrocal.SpectroCALDevice",
-                    'port': port
+                    'port': device.device
                 })
         
         return profiles
