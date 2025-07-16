@@ -10,3 +10,18 @@ devices by Cambridge Research Systems.
 """
 
 __version__ = "0.0.2"
+
+
+from . import bits, shaders
+from .legacy import colorcal, optical
+
+
+__all__ = [
+    "experiment",
+    "hardware",
+    "legacy",
+    "bits",
+    "colorcal",
+    "optical",
+    "shaders"
+]

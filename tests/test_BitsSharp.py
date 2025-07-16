@@ -6,21 +6,26 @@ Created on Thu May  8 10:46:41 2014
 """
 import pytest
 from psychopy import visual, core
-from psychopy.plugins import activatePlugins
+from psychopy.hardware.exceptions import DeviceNotConnectedError
 
 
 def test_bitsSharp():
-    # activate plugins so crs classes are available
-    activatePlugins()
-
     win = visual.Window(screen=0, fullscr=True, useFBO=True, autoLog=True)
-    win.setGamma(1.0) #make sure gfx card LUT is identity
     #initialise BitsSharp
     try:
+        from psychopy_crs.bits import BitsSharp
         bits = BitsSharp(win=win, mode='color++')
     except ImportError:
-        pytest.skip("crs.BitsSharp: could not initialize. possible:\nfrom serial.tools import list_ports\n"
-           "ImportError: No module named tools")
+        pytest.skip(
+            "crs.BitsSharp: could not initialize. possible:\n"
+            "from serial.tools import list_ports\n"
+            "ImportError: No module named tools"
+        )
+    except DeviceNotConnectedError:
+        pytest.skip(
+            "Skipping test as no BitsSharp box is connected"
+        )
+
 
     if not bits.OK:
         win.close()
