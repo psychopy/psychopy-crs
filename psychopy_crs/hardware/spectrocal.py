@@ -345,7 +345,7 @@ class SpectroCALDevice(BasePhotometerDevice):
         # iterate through serial devices via pyserial
         for device in serial.tools.list_ports.comports():
             # filter only for those which look like a spectrocal
-            if device.vid in (861, 1027) and device.pid in (1000, 1001, 1002, 1003, 1004, 24577):
+            if device.vid == 861 and device.pid in (1000, 1001, 1002, 1003, 1004):
                 # construct profile
                 profiles.append({
                     'deviceName': f"SpectroCAL@{device.device}",
